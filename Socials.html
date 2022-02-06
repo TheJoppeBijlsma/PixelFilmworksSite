@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pixel Filmworks</title>
 <link rel="stylesheet" href="website.css">
+<link rel="stylesheet" href="bars.css">
 </head>
 	<style>
 	body { 
@@ -12,16 +13,31 @@
 	background-color: #CACED5
 }
 	</style>
-	
-	<nav class="navbar" style="display: flex; flex-wrap: nowrap">
-        <div style="width: 25%"><img src="Assets/PixelFIlmworks Small Logo.png" width="50%" height="auto" alt=""/></div>
-        <div style="width: 50%"><p class="navtitle" align="center">Socials</p></div>
-        <div style="width: 25%">
-            <a class="navbutton" href="index.html">Home</a>
-            <a href="Projects.html" class="navbutton">Projects</a>
-            <a class="disnavbutton">Socials</a> 
-        </div>
-</nav>
+<script>
+	function toggleMobileMenu(menu) {
+		menu.classList.toggle("change");
+	}
+</script>
+<header>
+	<div><img src="Assets/PixelFIlmworks Small Logo.png" width="150px" height="auto" alt=""/></div>	
+	<div id="page"><a>Socials</a></div>
+	<nav>
+        <ul>
+			<li class="desktop"><a class="button-text" href="index.html">Home</a></li>
+			<li class="desktop"><a class="button-text" href="Projects.html">Projects</a></li>
+			<li class="desktop-disabled"><a>Socials</a> </li>
+		</ul>
+	</nav>
+	<div id="hamburger-icon" onClick="toggleMobileMenu(this)">
+		<div class="bar1"></div>
+		<div class="bar2"></div>
+		<div class="bar3"></div>
+		<ul class="mobile-menu">
+			<li><a class="mobile" href="index.html">Home</a></li>
+			<li><a class="mobile" href="Projects.html">Projects</a> </li>
+		</ul>
+	</div>
+</header>
 	
 <body>
 	
@@ -29,15 +45,17 @@
 	<img src="Assets/twitter.png" width="300" height="auto" alt=""/>
 	<img src="Assets/Youtube.png" width="300" height="auto" alt=""/>
 	</div>
-<div class="text-center">
+	<div class="text-center">
 		<h1 align="center"></h1>
-  <a class="button" href="https://twitter.com/pixel_filmworks">link to social</a>
-  <a class="space"></a>
-  <a class="button" href="https://www.youtube.com/channel/UCkBiW1iQTAwqkRjPyDWyHRA">link to social</a>
-</div>
-	
-	<div class="bottombar">
-		<img src="Assets/CopyRight.png" width="400" height="auto" alt=""/> 
+  		<a class="button" href="https://twitter.com/pixel_filmworks">link to social</a>
+  		<a class="space"></a>
+  		<a class="button" href="https://www.youtube.com/channel/UCkBiW1iQTAwqkRjPyDWyHRA">link to social</a>
 	</div>
 </body>
+	
+<footer>
+	<div>
+		<img src="Assets/CopyRight.png" width="400" height="auto" alt=""/> 
+	</div>
+</footer>
 </html>

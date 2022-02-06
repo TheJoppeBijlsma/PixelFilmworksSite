@@ -5,34 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pixel Filmworks</title>
 <link rel="stylesheet" href="website.css">
-<link rel="stylesheet" href="coming-soon.css">
+<link rel="stylesheet" href="coming-soon.css">	
+<link rel="stylesheet" href="bars.css">
 </head>
 	<style>
 	body { 
-    padding-top: 15%; 
-	background-image: url("Assets/forest.png");
+	background-image: url("Assets/Forest-Desktop.png");
 	background-repeat: no-repeat;
-	background-size: cover;		
+	background-size: cover;
+}
+		@media (max-width: 1200px) {
+    body {
+        background-image: url("Assets/Forest-Tablet.png");		
+		background-repeat: no-repeat;
+		background-size: cover;
+    }
+		
 }
 	</style>
+	<script>
+	function toggleMobileMenu(menu) {
+		menu.classList.toggle("change");
+	}
+</script>
+<header>
+	<div><img src="Assets/PixelFIlmworks Small Logo.png" width="150px" height="auto" alt=""/></div>	
+	<div id="page"><a>Projects</a></div>
+	<nav>
+        <ul>
+			<li class="desktop"><a class="button-text" href="index.html">Home</a></li>
+			<li class="desktop-disabled"><a>Projects</a></li>
+			<li class="desktop"><a class="button-text" href="Socials.html">Socials</a> </li>
+		</ul>
+	</nav>
+	<div id="hamburger-icon" onClick="toggleMobileMenu(this)">
+		<div class="bar1"></div>
+		<div class="bar2"></div>
+		<div class="bar3"></div>
+		<ul class="mobile-menu">
+			<li><a class="mobile" href="Index.html">Home</a></li>
+			<li><a class="mobile" href="Socials.html">Socials</a> </li>
+		</ul>
+	</div>
+</header>
+	
 <body>
-	<nav class="navbar" style="display: flex; flex-wrap: nowrap">
-        <div style="width: 25%"><img src="Assets/PixelFIlmworks Small Logo.png" width="50%" height="auto" alt=""/></div>
-        <div style="width: 50%"><p class="navtitle" align="center">Projects</p></div>
-        <div style="width: 25%">
-            <a class="navbutton" href="index.html">Home</a>
-            <a class="disnavbutton">Projects</a>
-            <a class="navbutton" href="Socials.html">Socials</a> 
-        </div>
-</nav>
 	
 	<div>
 		<img src="Assets/coming soon.png" class="soon-image" alt=""/>
 		
 	</div>
+</body>
 	
-	<div class="bottombar">
+<footer>
+	<div>
 		<img src="Assets/CopyRight.png" width="400" height="auto" alt=""/> 
 	</div>
-</body>
+</footer>
 </html>
