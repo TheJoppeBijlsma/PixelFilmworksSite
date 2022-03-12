@@ -71,11 +71,3 @@
 	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 	font-size: 20px;
 }
-.copyright{
-	font-family:"Courier New", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "monospace";
-	font-size: 100%;
-	height: auto;
-	font-weight: 600;
-	color: white;
-	text-shadow: 0px 4px 5px rgba(0,0,0,0.8);
-}
