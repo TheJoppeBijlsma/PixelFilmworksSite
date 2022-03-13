@@ -1,15 +1,32 @@
 @charset "UTF-8";
 /* CSS Document */
 
-#page {
+#page-name {
 	font-size: 300%;
 	font-weight: bold;
 	color: white;
 	text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
-	margin: 6px 0;
+	margin: 6px 0px;
 	height: auto;
-	padding-top: 5px;
-	padding-left: 13%;
+	padding-top: 0px;
+}
+
+#nav-logo {
+	align-content: center;
+	padding-left: 20px;
+}
+
+#footer-text{
+	font-family:"Courier New", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "monospace";
+	font-size: 100%;
+	height: auto;
+	font-weight: 600;
+	color: white;
+	text-shadow: 0px 3px 4px rgba(0,0,0,0.9);
+}
+
+.buttons {
+	text-align: right;
 }
 
 .desktop-disabled {display: inline-block;
@@ -60,12 +77,11 @@ footer {
 }
 
 header {
-	padding: 0 20px;
 	background-color: #3B6C9B;
-	height: 100px;
+	height: 80px;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 	position: fixed;
 	width: 100%;
   	top: 0;
@@ -85,7 +101,7 @@ ul {
 	height: auto;
 	display: flex;
 	align-items: center;
-	padding-right: 40px;
+	padding-right: 10px;
 }
 
 ul li {
@@ -131,12 +147,12 @@ ul li {
 .mobile-menu {
 	display: none;
 	position: absolute;
-	top: 80px;
 	left: 0;
 	height: auto;
 	padding-bottom: 10px;
 	width: 100%;
 	background-color:#1F3851;
+	box-shadow: 0 16px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);	
 }
 
 .mobile-menu a {
@@ -148,6 +164,7 @@ ul li {
   	display: block;
   	padding: 12px; /* Add some padding */
   	text-decoration: none; /* Remove underline from links */
+	align-content: center
 }
 
 .mobile-menu a:hover {

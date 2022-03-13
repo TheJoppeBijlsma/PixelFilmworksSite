@@ -50,15 +50,11 @@
   transform: translateY(4px);
 }
 
-.responsive {
-  width: 100%;
-  height: auto;
-}
-
 .text-background {
 	align-self: center;
-	width: 99%;
+	width: 90%;
 	background-color: white;
+	margin: 0 5% 0;
 	padding: 1px 1px 20px 10px;
 	box-shadow: 10px 16px 16px 0 rgba(0,0,0,0.2), -10px -16px 20px 0 rgba(0,0,0,0.19);	
 }
@@ -70,4 +66,10 @@
 .Paragraph{
 	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 	font-size: 20px;
+}
+
+body { 
+	margin: 0px;
+	padding-top: 150px; 
+	background-color: #CACED5
 }
