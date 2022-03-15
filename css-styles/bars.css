@@ -42,7 +42,7 @@
   border-radius: 5px;
   box-shadow: 0 7px #1F3851;
   opacity: 0.6;
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .desktop {
@@ -102,6 +102,7 @@ ul {
 	display: flex;
 	align-items: center;
 	padding-right: 10px;
+	justify-content: flex-end;
 }
 
 ul li {
@@ -114,6 +115,7 @@ ul li {
 	margin: auto 0;
 	display: none;
 	cursor: pointer;
+	justify-content: flex-end;
 }
 
 .bar1, .bar2, .bar3 {
@@ -175,7 +177,7 @@ ul li {
   background-color: #3B5671;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 1024px) {
 	header nav {
 		display: none;
 	}
