@@ -2,9 +2,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+<link rel="stylesheet" href="../../../css-styles/bars.css">	
+<link rel="stylesheet" href="../../../css-styles/website.css">
+
+<title>Watch: The Lost Mask</title>
 </head>
 
+<script>
+	function toggleMobileMenu(menu) {
+		menu.classList.toggle("change");
+	}
+</script>
+	
+	<header>
+	<div style="width: 33.33%"><img src="../../../Assets/small-logo.png" width="150px" height="auto" alt=""/></div>	
+	<div style="width: 33.33%, text-align: center" id="page-name"><a>Socials</a></div>
+	<nav style="width: 33.33%">
+        <ul style="text-align: right">
+			<li class="desktop"><a class="button-text" href="http://pixelfilmworks.com/">Home</a></li>
+			<li class="desktop"><a class="button-text" href="http://pixelfilmworks.com/Projects/">Projects</a></li>
+			<li class="desktop-disabled"><a>Socials</a> </li>
+		</ul>
+	</nav>
+	<div id="hamburger-icon" onClick="toggleMobileMenu(this)">
+		<div class="bar1"></div>
+		<div class="bar2"></div>
+		<div class="bar3"></div>
+		<ul class="mobile-menu">
+			<li><a class="mobile" href="http://pixelfilmworks.com/">Home</a></li>
+			<li><a class="mobile" href="http://pixelfilmworks.com/Projects/">Projects</a> </li>
+		</ul>
+	</div>
+</header>
+	
 <body>
 	<a href="../../../video/the-lost-mask/video-the-lost-mask.html">
 		Watch: The Lost Mask.
