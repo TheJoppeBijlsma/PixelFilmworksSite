@@ -9,60 +9,28 @@
 </head>
 
 	<style>
-	.diBATh {
-    left: 0px;
-    opacity: 0;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    transition: opacity 200ms ease 0s;
-    width: 100%;
-    z-index: 0;
-}
-		
-		.gKCtcj {
-    background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
-    position: absolute;
-    inset: 0px;
-}
-		
-		* {
-    box-sizing: border-box;
+.nice-header {
+  position: relative;
+  height: 300px;
+  background: center center;
+  background-size: cover;
+  background-image: url(http://www.boeing.com/resources/boeingdotcom/commercial/787/assets/images/marquee-787.jpg);
 }
 
-div {
-    display: block;
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  opacity: 0;
 }
-		
-	div#app_body_content {
-    -webkit-font-smoothing: antialiased;
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+
+.dummy {
+  height: 900px;
 }
-	
-	body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    background: #000;
-    margin: 0;
-    overflow-x: hidden;
-    padding: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-body {
-    box-sizing: border-box;
-    font-family: Avenir-Roman,sans-serif;
-}
-		
-		html {
-    -webkit-text-size-adjust: 100%;
-    line-height: 1.15;
-}
+
 	</style>
 	
 <script>
@@ -92,11 +60,26 @@ body {
 </header>
 	
 <body>
-<div class="diBATh" style="opacity: 1">
-	<img src="../../../Assets/film-backgrounds/the-lost-mask-background.png" width="100%" height="auto" alt=""/>
-	<div class="sc-ejGVNB gKCtcj"></div>
-	</div> 
+<div class="nice-header">
+  <div class="header-overlay">
+
+  </div>
+</div>
+<div class="dummy">
+
+</div>
 	
+	<script>
+	$(window).scroll(function() {
+  var scrollTop = $(this).scrollTop();
+
+  $('.header-overlay').css({
+    opacity: function() {
+      var elementHeight = $(this).height();
+      return 1 - (elementHeight - scrollTop) / elementHeight;
+    }
+  });
+});</script>
 	
 	
 <a href="../../../video/the-lost-mask/video-the-lost-mask.html">
