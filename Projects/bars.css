@@ -166,6 +166,30 @@ ul li {
   background-color: #3B5671;
 }
 
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: #415F7D;
+  border: 3px solid #343434;
+  border-radius: 5px;
+  box-shadow: 0 7px #1F3851;
+}
+
+.button:hover {background-color: #547CA3}
+
+.button:active {
+  background-color: #3B5671;
+  box-shadow: 0 3px #1F3851;
+  transform: translateY(4px);
+}
+
 @media only screen and (max-width: 780px) {
 	header nav {
 		display: none;

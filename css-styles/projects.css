@@ -1,33 +1,283 @@
 @charset "UTF-8";
 /* CSS Document */
+
 body {
-	margin: 0;
-	padding: 0;
-	background: #17E0D9;
-	font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(26, 29, 41);
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+			right: 0px;
+			opacity: 0;
+			transition: opacity 200ms ease 0s;
+    		width: 100%;
+			z-index: 0;
+        }
+
+.background-image {
+    left: 0px;
+    opacity: 0;
+    top: 0px;
+    transition: opacity 200ms ease 0s;
+    width: 100%;
+    z-index: 0;
 }
 
-.header-bg {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: url("../Assets/film-backgrounds/the-lost-mask-background.png");
-	background-size: cover;
-	background-attachment: fixed;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+main {
+	display: block;
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-height: calc(100vh - 250px);
+    overflow-x: hidden;
+    padding: 0 calc(3.5vw + 24px);
+    position: relative;
 }
+        
 
-.gKCtcj {
+.overlay {
     background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
     position: absolute;
     inset: 0px;
 }
 
-section {
-	position: relative;
-	top: 50vh;
+#logo {
+	max-width: 321px;
+	min-width: 100px;
+}
+
+.restrictions {
+	height: 20px;
+	padding-right: 4px;
+}
+
+.audio {
+	height: 20px;
+	padding-right: 4px;
+}
+
+.info {
+	color: #f9f9f9;
+	font-family: Avenir-Roman,sans-serif;
+	font-size: 12px;
+	margin: 0;
+}
+
+.project-logo {
+	align-items: flex-end;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    margin: 0px auto;
+    min-height: 170px;
+    opacity: 0;
+    padding-top: 56px;
+    padding-bottom: 16px;
+    transition: opacity 200ms ease 0s;
+    width: 100%;
+}
+
+.gtfx {
+	display: flex;
+    flex-direction: column;
+    padding-bottom: 112px;
+    position: relative;
+}
+
+.xyas {
+	margin-bottom: 56px;
+    z-index: 1;
+}
+
+.ysah {
+	max-width: 874px;
+}
+
+.text-color--primary {
+    color: #f9f9f9;
+}
+.margin--0 {
+    margin: 0;
+}
+.body-copy {
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 15px;
+    line-height: 1.53;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.text-color--primary {
+    color: #f9f9f9;
+}
+.metadata {
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.aksj {
+	display: block;
+    margin: 0px 0px 5px
+}
+
+.feas {
+	display: block;
+    margin: 0px;
+}
+
+.kada {
+	-webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    margin: calc(28px) -8px -4px;
+    min-height: 56px;
+}
+
+.button.button-play.button-play--default {
+    background: #f9f9f9;
+    border: none;
+    color: #090b13;
+}
+.button.button-play {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0.25rem 0.5rem;
+    overflow: hidden;
+    padding: 0 1rem;
+    position: relative;
+    transition: all .2s ease-in-out;
+    width: auto;
+}
+.button.button--destructive, .button.button--primary, .button.button--secondary, .button.button-play {
+    border: 0;
+    border-radius: 0.25rem;
+    color: #f9f9f9;
+    height: 3rem;
+    padding: 1rem 1.5rem;
+}
+.button {
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    line-height: 1.06;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+.button.button-play.button-play--secondary {
+    background: rgba(0,0,0,.3);
+    border: 1px solid #f9f9f9;
+    color: #f9f9f9;
+}
+.button.button-play {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0.25rem 0.5rem;
+    overflow: hidden;
+    padding: 0 1rem;
+    position: relative;
+    transition: all .2s ease-in-out;
+    width: auto;
+}
+.button.button--destructive, .button.button--primary, .button.button--secondary, .button.button-play {
+    border: 0;
+    border-radius: 0.25rem;
+    color: #f9f9f9;
+    height: 3rem;
+    padding: 1rem 1.5rem;
+}
+.button {
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    line-height: 1.06;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.button:hover {background-color: #9F9F9F}
+
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+a{
+	text-decoration: none;
 }
