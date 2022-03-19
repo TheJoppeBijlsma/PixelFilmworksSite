@@ -12,7 +12,7 @@
 	
 <body>
 	<div class="header-bg">
-		<h2>Change Opacity On Scroll</h2>
+		<div class="sc-ejGVNB gKCtcj"></div>
 	</div>
 	<section>
 		
@@ -24,6 +24,14 @@
 		<div>w</div><div>w</div><div>w</div><div>w</div><div>w</div><div>w</div><div>w</div><div>w</div>
 		<div>w</div><div>w</div><div>w</div><div>w</div><div>w</div><div>w</div><div>w</div><div>w</div>
 	</section>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(window).scroll(function(){
+				$('.header-bg').css("opacity", 1 - 
+								   $(window).scrollTop()/700)
+			})
+		})
+	</script>
 </body>
 	
 </html>

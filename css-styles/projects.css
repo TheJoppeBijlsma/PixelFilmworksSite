@@ -11,7 +11,7 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	background: url("../Assets/film-backgrounds/the-lost-mask-background.png");
 	background-size: cover;
@@ -19,4 +19,15 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.gKCtcj {
+    background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
+    position: absolute;
+    inset: 0px;
+}
+
+section {
+	position: relative;
+	top: 50vh;
 }
