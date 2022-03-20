@@ -1,5 +1,51 @@
 @charset "UTF-8";
 /* CSS Document */
+.return-button {
+	display: inline-flex;
+}
+
+#return-icon {
+	font-size: 60px;
+}
+
+#return-icon:hover {
+	color: white;
+}
+
+ul {
+	list-style: none;
+	height: auto;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+ul li {
+	padding: 5px;
+	
+}
+
+.return-button-text {
+	font-family: Avenir-Roman,sans-serif;
+	font-size: var(--title-font-size,44px);
+    font-weight: var(--title-font-weight,800);
+    line-height: var(--title-line-height,28px);
+	text-decoration: none;
+	color: #C9C9C9
+}
+
+.return-button-text:hover {color: white}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
+	position: absolute;
+  	top: 0;
+	z-index: 1;
+}
 
 body {
             margin: 0;
@@ -42,6 +88,7 @@ main {
     background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
     position: absolute;
     inset: 0px;
+	z-index: 2;
 }
 
 #logo {
@@ -280,4 +327,102 @@ button, input, optgroup, select, textarea {
 
 a{
 	text-decoration: none;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.body-copy.body-copy--large {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.text-color--primary {
+    color: #f9f9f9;
+}
+.margin--0 {
+    margin: 0;
+}
+.padding--bottom-4 {
+    padding-bottom: 1rem;
+}
+.padding--top-4 {
+    padding-top: 1rem;
+}
+.body-copy {
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 15px;
+    line-height: 1.53;
+}
+
+element.style {
+    margin-top: 100px;
+}
+.footer.footer__container {
+    background-color: #090b13;
+}
+
+.gTKUFW {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+	margin-bottom: 0;
+}
+
+.eQGcMI {
+    padding-top: 19px;
+    width: 94px;
+    margin: 0px auto;
+}
+@media only screen and (min-width: 768px) {
+	.cxLgNW {
+    min-width: 79px;
+    height: 48px;
+    margin-right: 32px;
+}
+}
+
+.cxLgNW {
+    cursor: pointer;
+    min-width: 62px;
+    height: 60px;
+    margin-right: 24px;
+}
+
+.container--hw-full {
+    height: 100%;
+    width: 100%;
+}
+.logo {
+    background-color: transparent;
+    background-image: url("../Assets/big-logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: auto;
+    min-height: 50px;
+    min-width: 63px;
+    width: auto;
+}
+
+.text-color--secondary {
+    color: #cacaca;
+}
+.text--center {
+    text-align: center;
+}
+.padding--bottom-6 {
+    padding-bottom: 1.5rem;
+}
+.padding--top-2 {
+    padding-top: 0.5rem;
+}
+.metadata {
+    font-family: Avenir-Roman,sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
 }
