@@ -1,0 +1,206 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#page {
+	font-size: 300%;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
+	margin: 6px 0;
+	height: auto;
+	padding-top: 5px;
+	padding-left: 13%;
+}
+
+footer {
+  overflow: visible;
+  background-color: #3B6C9B;
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 0; /* Position the bar at the bottom of the page */
+  width: 100%; /* Full width */
+  padding: 15px;
+  box-shadow: 0 -16px 16px 0 rgba(0,0,0,0.2), 0 -6px 20px 0 rgba(0,0,0,0.19);	
+}
+
+header {
+	padding: 0 20px;
+	background-color: #3B6C9B;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+  	top: 0;
+	box-shadow: 0 16px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);	
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+
+.footer-text{
+	font-family:"Courier New", Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "monospace";
+	font-size: 100%;
+	height: auto;
+	font-weight: 600;
+	color: white;
+}
+
+.desktop-disabled {display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: #415F7D;
+  border: 3px solid #343434;
+  border-radius: 5px;
+  box-shadow: 0 7px #1F3851;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.desktop {
+  display: inline-block;
+  padding: 15px 25px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #415F7D;
+  border: 3px solid #343434;
+  border-radius: 5px;
+  box-shadow: 0 7px #1F3851;
+}
+
+.desktop:hover {background-color: #547CA3}
+
+.desktop:active {
+  background-color: #3B5671;
+  box-shadow: 0 3px #1F3851;
+  transform: translateY(4px);
+}
+
+.button-text {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-size: 15px;
+	color: white;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	height: auto;
+	display: flex;
+	align-items: center;
+	padding-right: 40px;
+}
+
+ul li {
+	margin-left: 5px;
+	padding: 5px;
+	
+}
+
+#hamburger-icon {
+	margin: auto 0;
+	display: none;
+	cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #FFFFFF;
+  margin: 6px 50px 0 0;
+  transition: 0.4s;
+  box-shadow: 0px 7px 8px rgba(0,0,0,0.69);
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.change .mobile-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.mobile-menu {
+	display: none;
+	position: absolute;
+	top: 80px;
+	left: 0;
+	height: auto;
+	padding-bottom: 10px;
+	width: 100%;
+	background-color:#1F3851;
+}
+
+.mobile-menu a {
+  	background-color: #1F3851; 
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-size: 20px;
+  	color: white;
+	text-shadow: 0px 5px 8px rgba(0,0,0,0.69);
+  	display: block;
+  	padding: 12px; /* Add some padding */
+  	text-decoration: none; /* Remove underline from links */
+}
+
+.mobile-menu a:hover {
+  background-color: #3B6C9B;
+}
+
+.mobile-menu a.active {
+  background-color: #3B5671;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: #415F7D;
+  border: 3px solid #343434;
+  border-radius: 5px;
+  box-shadow: 0 7px #1F3851;
+}
+
+.button:hover {background-color: #547CA3}
+
+.button:active {
+  background-color: #3B5671;
+  box-shadow: 0 3px #1F3851;
+  transform: translateY(4px);
+}
+
+@media only screen and (max-width: 780px) {
+	header nav {
+		display: none;
+	}
+	
+	#hamburger-icon {
+		display: block;
+	}
+}
+
+	
+	#page {
+		padding-left: 0;
+	}
