@@ -3,10 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css-styles/website.css">
+<link rel="stylesheet" href="../css-styles/bars.css">
+<link rel="stylesheet" href="../css-styles/projects-slideshow.css">
 <title>Projects</title>
 </head>
+	
+	<header>
+	<div style="width: 33.33%"><img src="../Assets/small-logo.png" width="150px" height="auto" alt=""/></div>	
+	<div style="width: 33.33%, text-align: center" id="page-name"><a>Projects</a></div>
+	<nav style="width: 33.33%">
+        <ul style="text-align: right">
+			<li class="desktop"><a class="button-text" href="http://pixelfilmworks.com/">Home</a></li>
+			<li class="desktop-disabled"><a>Projects</a></li>
+			<li class="desktop"><a class="button-text" href="http://pixelfilmworks.com/socials/">Socials</a> </li>
+		</ul>
+	</nav>
+	<div id="hamburger-icon" onClick="toggleMobileMenu(this)">
+		<div class="bar1"></div>
+		<div class="bar2"></div>
+		<div class="bar3"></div>
+		<ul class="mobile-menu">
+			<li><a class="mobile" href="http://pixelfilmworks.com/">Home</a></li>
+			<li><a class="mobile" href="http://pixelfilmworks.com/socials/">Socials</a> </li>
+		</ul>
+	</div>
+</header>
 
 <body>
+	
+	<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="img_nature_wide.jpg" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="img_snow_wide.jpg" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="img_mountains_wide.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+	
 	<a href="films/the-lost-mask/index.html">The Lost Mask!!! out now</a>
 </body>
 </html>
