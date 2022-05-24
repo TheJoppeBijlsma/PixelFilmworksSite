@@ -69,6 +69,10 @@
   background-color: #717171;
 }
 
+.image {
+	border: thick #FFFFFF;
+}
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
