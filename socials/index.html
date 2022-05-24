@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel Filmworks</title>
+<link rel="stylesheet" href="../css-styles/website.css">
+<link rel="stylesheet" href="../css-styles/bars.css">
+</head>
+	<style>
+	body { 
+    padding-top: 20%; 
+	background-color: #CACED5
+}
+	</style>
+<script>
+	function toggleMobileMenu(menu) {
+		menu.classList.toggle("change");
+	}
+</script>
+<header>
+	<div style="width: 33.33%"><img src="../Assets/small-logo.png" width="150px" height="auto" alt=""/></div>	
+	<div style="width: 33.33%, text-align: center" id="page-name"><a>Socials</a></div>
+	<nav style="width: 33.33%">
+        <ul style="text-align: right">
+			<li class="desktop"><a class="button-text" href="http://pixelfilmworks.com/">Home</a></li>
+			<li class="desktop"><a class="button-text" href="http://pixelfilmworks.com/projects/">Projects</a></li>
+			<li class="desktop-disabled"><a>Socials</a> </li>
+		</ul>
+	</nav>
+	<div id="hamburger-icon" onClick="toggleMobileMenu(this)">
+		<div class="bar1"></div>
+		<div class="bar2"></div>
+		<div class="bar3"></div>
+		<ul class="mobile-menu">
+			<li><a class="mobile" href="http://pixelfilmworks.com/">Home</a></li>
+			<li><a class="mobile" href="http://pixelfilmworks.com/projects/">Projects</a> </li>
+		</ul>
+	</div>
+</header>
+	
+<body>
+	
+	<div class="text-center">
+	<img src="Assets/twitter.png" width="300" height="auto" alt=""/>
+	<img src="Assets/Youtube.png" width="300" height="auto" alt=""/>
+	</div>
+	<div class="text-center">
+		<h1 align="center"></h1>
+  		<a class="button" href="https://twitter.com/pixel_filmworks">link to social</a>
+  		<a class="space"></a>
+  		<a class="button" href="https://www.youtube.com/channel/UCkBiW1iQTAwqkRjPyDWyHRA">link to social</a>
+	</div>
+</body>
+	
+<footer>
+	<div>
+		<p1 id="footer-text">© 2022 Pixel Filmworks.</p1>
+	</div>
+</footer>
+</html>
