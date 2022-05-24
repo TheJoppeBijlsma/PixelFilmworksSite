@@ -1,6 +1,17 @@
 @charset "UTF-8";
 /* CSS Document */
 
+h4 {
+	padding-top: 0;
+	margin: 0;
+	margin-bottom: 70px;
+	font-size: 500%;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 5px 8px rgba(0,0,0,0.8);
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+ }
+
 .discord-button {
   display: inline-block;
   padding: 15px 25px;
@@ -8,10 +19,10 @@
   text-align: center;
   text-decoration: none;
   outline: none;
-  background-color: #415F7D;
-  border: 3px solid #343434;
+  background-color: #5865F1;
+  border: 3px solid #2F3AAC;
   border-radius: 5px;
-  box-shadow: 0 7px #1F3851;
+  box-shadow: 0 12px #2C3693;
   font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
   font-size: 30px;
   font-weight: bold;
@@ -19,11 +30,11 @@ text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   color: white;
 }
 
-.discord-button:hover {background-color: #547CA3}
+.discord-button:hover {background-color: #7681FB}
 
 .discord-button:active {
-  background-color: #3B5671;
-  box-shadow: 0 3px #1F3851;
+  background-color: #3946D3;
+  box-shadow: 0 8px #2C3693;
   transform: translateY(4px);
 }
 
@@ -34,10 +45,10 @@ text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   text-align: center;
   text-decoration: none;
   outline: none;
-  background-color: #A52123;
-  border: 3px solid #751718;
+  background-color: #CE2F2B;
+  border: 3px solid #8F120F;
   border-radius: 5px;
-  box-shadow: 0 7px #6C1012;
+  box-shadow: 0 12px #A52123;
   font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
   font-size: 30px;
   font-weight: bold;
@@ -45,11 +56,11 @@ text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   color: white;
 }
 
-.youtube-button:hover {background-color: #B24143}
+.youtube-button:hover {background-color: #E3504D}
 
 .youtube-button:active {
-  background-color: #3B5671;
-  box-shadow: 0 3px #1F3851;
+  background-color: #A81B18;
+  box-shadow: 0 8px #A52123;
   transform: translateY(4px);
 }
 
@@ -60,21 +71,21 @@ text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   text-align: center;
   text-decoration: none;
   outline: none;
-  background-color: #1B7AD6;
-  border: 3px solid #22496F;
+  background-color: #38A1F2;
+  border: 3px solid #225E98;
   border-radius: 5px;
-  box-shadow: 0 7px #2563A1;
+  box-shadow: 0 12px #2B76AF;
   font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
   font-size: 30px;
   font-weight: bold;
-text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
+  text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   color: white;
 }
 
-.twitter-button:hover {background-color: #547CA3}
+.twitter-button:hover {background-color: #6BB8F2}
 
 .twitter-button:active {
-  background-color: #3B5671;
-  box-shadow: 0 3px #1F3851;
+  background-color: #2686D0;
+  box-shadow: 0 8px #2B76AF;
   transform: translateY(4px);
 }
