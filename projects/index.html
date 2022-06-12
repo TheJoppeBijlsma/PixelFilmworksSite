@@ -7,6 +7,11 @@
 <link rel="stylesheet" href="../css-styles/bars.css">
 <link rel="stylesheet" href="../css-styles/projects-slideshow.css">
 <title>Projects</title>
+	<style>
+		body {
+			padding-top: 100px;
+		}
+	</style>
 </head>
 	
 	<header>
@@ -29,40 +34,83 @@
 		</ul>
 	</div>
 </header>
+	
+	<script>
+	function toggleMobileMenu(menu) {
+		menu.classList.toggle("change");
+	}
+</script>
 
 <body>
-	
 	<div class="slideshow-container">
-
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="../Assets/PixelFIlmworks Banner.png" style="width:100%">
-  <div href="films/the-lost-mask/index.html" class="text">Lost Mask</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img href="films/the-lost-mask/index.html" src="../Assets/PixelFIlmworks Banner.png" style="width:100%">
-  <div class="text">Caption Two</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="../Assets/PixelFIlmworks Banner.png" style="width:100%">
-  <div class="text">Caption Three</div>
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
+		
+		<div style="text-align:right; position: relative;">
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
+		
+<div class="mySlides fade">
+  <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 100%;">
+	<div >
+		<div class="gv2-asset" tabindex="-1" style="width: 100%; display: inline-block;">
+			<div class="sc-gZMcBi ilNsAp  asset-wrapper">
+				<a aria-label="The Lost Mask" class="sc-jKJlTe iEImap hero-card gv2-tracked" href="films/the-lost-mask/index.html">
+					<div class="hRKcBi image-container" alt="The Lost Mask" style="background: linear-gradient(rgb(48, 50, 62), rgb(30, 31, 42)); border-radius: 4px; padding-top: 25.6%;">
+						<div>
+							<img alt="The Lost Mask" class="slideshow-image" src="../Assets/film-banners/the-lost-mask/image.png">
+							<img alt="The Lost Mask" class="slideshow-image image-overlay" src="../Assets/film-banners/the-lost-mask/logo.png">
+						</div>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+<div class="mySlides fade">
+  <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 100%;">
+	<div >
+		<div class="gv2-asset" tabindex="-1" style="width: 100%; display: inline-block;">
+			<div class="sc-gZMcBi ilNsAp  asset-wrapper">
+				<a aria-label="The Lost Mask" class="sc-jKJlTe iEImap hero-card gv2-tracked" href="films/the-lost-mask/index.html">
+					<div class="hRKcBi image-container" alt="The Lost Mask" style="background: linear-gradient(rgb(48, 50, 62), rgb(30, 31, 42)); border-radius: 4px; padding-top: 25.6%;">
+						<div>
+							<img alt="The Lost Mask" class="slideshow-image" src="../Assets/film-banners/no-movies/image.png">
+							<img alt="The Lost Mask" class="slideshow-image image-overlay" src="../Assets/film-banners/no-movies/logo.png">
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>	  
+</div>
+		</div>
+		
+<div class="mySlides fade">
+  <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 100%;">
+	<div>
+		<div class="gv2-asset" tabindex="-1" style="width: 100%; display: inline-block;">
+			<div class="sc-gZMcBi ilNsAp  asset-wrapper">
+				<a aria-label="The Lost Mask" class="sc-jKJlTe iEImap hero-card gv2-tracked" href="films/the-lost-mask/index.html">
+					<div class="hRKcBi image-container" alt="The Lost Mask" style="background: linear-gradient(rgb(48, 50, 62), rgb(30, 31, 42)); border-radius: 4px; padding-top: 25.6%;">
+						<div>
+							<img alt="The Lost Mask" class="slideshow-image" src="../Assets/film-banners/no-movies/image.png">
+							<img alt="The Lost Mask" class="slideshow-image image-overlay" src="../Assets/film-banners/no-movies/logo.png">
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	</div>
+		</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	</div>
+			
+<br>
 
 <script>
 var slideIndex = 1;

@@ -17,11 +17,6 @@
   box-shadow: 0 7px #CACED5;
 }
 
-.socialtext {
-	font-family:  Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
-	font-size: 20px;
-}
-
 .text-center {
   text-align: center;
 }
@@ -48,6 +43,10 @@ body {
 	margin: 0px;
 	padding-top: 150px; 
 	background-color: #CACED5
+}
+
+.darkmode {
+	background-color: #1A1D29;
 }
 
 #footer {

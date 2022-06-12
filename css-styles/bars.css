@@ -74,6 +74,7 @@ footer {
   width: 100%; /* Full width */
   padding: 15px;
   box-shadow: 0 -16px 16px 0 rgba(0,0,0,0.2), 0 -6px 20px 0 rgba(0,0,0,0.19);	
+  display: flex;
 }
 
 header {
@@ -87,6 +88,7 @@ header {
   	top: 0;
 	box-shadow: 0 16px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);	
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	z-index: 1;
 }
 
 .button-text {
