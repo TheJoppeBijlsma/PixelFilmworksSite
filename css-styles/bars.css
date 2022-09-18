@@ -43,11 +43,13 @@
   box-shadow: 0 7px #1F3851;
   opacity: 0.6;
   cursor: default;
+  margin: 2px;
 }
 
 .desktop {
   display: inline-block;
   padding: 15px 25px;
+  margin: 2px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -56,6 +58,9 @@
   border: 3px solid #343434;
   border-radius: 5px;
   box-shadow: 0 7px #1F3851;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  font-size: 15px;
+  color: white;
 }
 
 .desktop:hover {background-color: #547CA3}
