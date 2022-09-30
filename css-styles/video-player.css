@@ -2,6 +2,65 @@
 /* CSS Document */
 
 body {
-	background-color: #1A1D29;
+	background-color: black;
 	margin: 0;
+	padding: 0;
 }
+
+.controls {
+	display: flex;
+	position: absolute;
+	top: 30px;
+	width: 100%;
+	flex-wrap: wrap;
+	text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
+}
+
+.video-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.video {
+	width: 100%;
+}
+
+.c-video {
+	width: 100%;
+}
+
+.return-button {
+	display: inline-flex;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
+	position: absolute;
+  	top: 0;
+	z-index: 1;
+}
+
+#return-icon {
+	font-size: 60px;
+}
+
+#return-icon:hover {
+	color: white;
+}
+
+.return-button-text {
+	font-family: Avenir-Roman,sans-serif;
+	font-size: var(--title-font-size,44px);
+    font-weight: var(--title-font-weight,800);
+    line-height: var(--title-line-height,28px);
+	text-decoration: none;
+	color: #C9C9C9
+}
+
+.return-button-text:hover {color: white}

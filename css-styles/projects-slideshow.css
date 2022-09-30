@@ -190,3 +190,24 @@ a {
     margin: 0px -10px;
     padding: 0px;
 }
+
+.OqAbI .slick-list, .OqAbI .slick-slider {
+    position: relative;
+    display: block;
+}
+
+@media (min-width: 480px) {
+.OqAbI .slick-slider {
+    margin-bottom: 16px;
+	}
+}
+
+.OqAbI .slick-slider {
+    margin-bottom: 14px;
+    z-index: 6;
+}
+
+.OqAbI .slick-track::before, .OqAbI .slick-track::after {
+    display: table;
+    content: "";
+}

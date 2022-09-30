@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="../css-styles/website.css">
 <link rel="stylesheet" href="../css-styles/bars.css">
 <link rel="stylesheet" href="../css-styles/projects-slideshow.css">
+<link rel="stylesheet" href="../css-styles/movie-boxes.css">
+<link rel="icon" href="../Assets/icon.png">
 <title>Projects</title>
 	<style>
 		body {
@@ -58,7 +60,7 @@
 					<div class="hRKcBi image-container" alt="The Lost Mask" style="background: linear-gradient(rgb(48, 50, 62), rgb(30, 31, 42)); border-radius: 15px; padding-top: 25.6%;">
 						<div>
 							<img alt="The Lost Mask" class="slideshow-image" src="../Assets/film-banners/the-lost-mask/image.png">
-							<img alt="The Lost Mask" class="slideshow-image image-overlay" src="../Assets/film-banners/the-lost-mask/logo.png" href="films/the-lost-mask/index.html">
+							<img alt="The Lost Mask" class="slideshow-image image-overlay" src="../Assets/film-banners/the-lost-mask/logo.png" href="films/the-lost-mask/">
 						</div>
 					</div>
 					</a>
@@ -90,9 +92,20 @@
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>
 	</div>
-			
-<br>
-
+	
+	<div data-id="collection-2">
+		<div>
+			<h4>New To PixelFilmworks</h4>
+			<div class="your-class">
+  	<div>your content</div>
+  	<div>your content</div>
+  	<div>your content</div>
+</div>
+		</div>
+	</div>
+	
+</body>
+	
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -121,5 +134,4 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script>
-</body>
 </html>

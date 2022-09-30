@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.euSUqk {
+    backface-visibility: hidden;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    transform: scale(1, 1) translateZ(0px);
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.basic-card {
+    box-shadow: 0 26px 30px -10px "";
+    display: block;
+    position: relative;
+}
+
+a {
+    background-color: transparent;
+}
+
+* {
+    box-sizing: border-box;
+}
