@@ -3,20 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel Filmworks</title>
+<link rel="stylesheet" href="coming-soon.css">
+<link rel="stylesheet" href="projects.css">
+<link rel="stylesheet" href="../css-styles/bars.css">	
 <link rel="stylesheet" href="../css-styles/website.css">
-<link rel="stylesheet" href="../css-styles/bars.css">
-<link rel="stylesheet" href="../css-styles/projects-slideshow.css">
-<link rel="stylesheet" href="../css-styles/movie-boxes.css">
-<link rel="icon" href="../Assets/icon.png">
-<title>Projects</title>
-	<style>
-		body {
-			padding-top: 100px;
-		}
-	</style>
 </head>
-	
-	<header>
+	<style>
+	body { 
+	background-image: url("Assets/Forest-Desktop.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+		@media (max-width: 1200px) {
+    body {
+        background-image: url("Assets/Forest-Tablet.png");		
+		background-repeat: no-repeat;
+		background-size: cover;
+    }
+			
+		@media (max-width: 600px) {
+    body {
+        background-image: url("Assets/Forest-Mobile.png");		
+		background-repeat: no-repeat;
+		background-size: cover;
+    }
+		
+}
+	</style>
+	<script>
+	function toggleMobileMenu(menu) {
+		menu.classList.toggle("change");
+	}
+</script>
+<header>
 	<div style="width: 33.33%"><img src="../Assets/small-logo.png" width="150px" height="auto" alt=""/></div>	
 	<div style="width: 33.33%, text-align: center" id="page-name"><a>Projects</a></div>
 	<nav style="width: 33.33%">
@@ -37,101 +57,18 @@
 	</div>
 </header>
 	
-	<script>
-	function toggleMobileMenu(menu) {
-		menu.classList.toggle("change");
-	}
-</script>
-
 <body>
-	<div class="slideshow-container">
+	
+	<div>
+		<img src="Assets/coming soon.png" class="soon-image" alt=""/>
 		
-		<div style="text-align:center; position: relative;">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span>
-</div>
-		
-<div class="mySlides fade">
-  <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 100%;">
-	<div >
-		<div class="gv2-asset" tabindex="-1" style="width: 100%; display: inline-block;">
-			<div class="sc-gZMcBi ilNsAp  asset-wrapper">
-				<a aria-label="The Lost Mask" class="sc-jKJlTe iEImap hero-card gv2-tracked" href="films/the-lost-mask/index.html">
-					<div class="hRKcBi image-container" alt="The Lost Mask" style="background: linear-gradient(rgb(48, 50, 62), rgb(30, 31, 42)); border-radius: 15px; padding-top: 25.6%;">
-						<div>
-							<img alt="The Lost Mask" class="slideshow-image" src="../Assets/film-banners/the-lost-mask/image.png">
-							<img alt="The Lost Mask" class="slideshow-image image-overlay" src="../Assets/film-banners/the-lost-mask/logo.png" href="films/the-lost-mask/">
-						</div>
-					</div>
-					</a>
-				</div>
-			</div>
-		</div>
 	</div>
-</div>
-	
-<div class="mySlides fade">
-  <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true" style="outline: none; width: 100%;">
-	<div >
-		<div class="gv2-asset" tabindex="-1" style="width: 100%; display: inline-block;">
-			<div class="sc-gZMcBi ilNsAp  asset-wrapper">
-				<a aria-label="The Lost Mask" class="sc-jKJlTe iEImap hero-card gv2-tracked">
-					<div class="hRKcBi image-container" alt="The Lost Mask" style="background: linear-gradient(rgb(48, 50, 62), rgb(30, 31, 42)); border-radius: 4px; padding-top: 25.6%;">
-						<div>
-							<img alt="The Lost Mask" class="slideshow-image" src="../Assets/film-banners/no-movies/image.png">
-							<img alt="The Lost Mask" class="slideshow-image image-overlay" src="../Assets/film-banners/no-movies/logo.png">
-						</div>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>	  
-</div>
-		</div>
-
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-	</div>
-	
-	<div data-id="collection-2">
-		<div>
-			<h4>New To PixelFilmworks</h4>
-			<div class="your-class">
-  	<div>your content</div>
-  	<div>your content</div>
-  	<div>your content</div>
-</div>
-		</div>
-	</div>
-	
 </body>
 	
-<script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
+<footer>
+	<div>
+		<p1 id="footer-text">© 2022 Pixel Filmworks.</p1>
+	</div>
+	<a style="align: right" href="http://pixelfilmworks.com/projects-dev/">dev-mode</a>
+</footer>
 </html>
