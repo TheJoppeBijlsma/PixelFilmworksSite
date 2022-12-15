@@ -68,3 +68,21 @@ h4{
 .movie-container{
 	max-width: 90%;
 }
+
+.footer-text {
+	
+}
+
+.footer-logo {
+    padding-top: 19px;
+    width: 94px;
+    margin: 0px auto;
+}
+
+
+.footer {
+    background-color: #090b13;
+	width: 100%;
+    position: relative;
+	margin-bottom: 0;
+}

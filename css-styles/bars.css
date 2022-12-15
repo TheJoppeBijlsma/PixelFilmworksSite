@@ -76,7 +76,7 @@
 footer {
   overflow: visible;
   background-color: #3B6C9B;
-  position: fixed; /* Set the navbar to fixed position */
+  position: relative ; /* Set the navbar to fixed position */
   bottom: 0; /* Position the bar at the bottom of the page */
   width: 100%; /* Full width */
   padding: 15px;
