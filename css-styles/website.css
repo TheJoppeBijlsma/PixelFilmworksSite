@@ -53,3 +53,18 @@ body {
 	position: relative;
 	bottom: 0;
 }
+
+h4{
+	color: white;
+	font-size: 20px;
+	font-weight: normal;
+	text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
+	margin: 0px 0px 0px 70px;
+	height: auto;
+	padding-top: 0px;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+
+.movie-container{
+	max-width: 90%;
+}
