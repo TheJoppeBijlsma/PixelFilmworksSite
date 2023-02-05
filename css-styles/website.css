@@ -12,22 +12,11 @@
   outline: none;
   color: #CACED5;
   background-color: #CACED5;
-  border: 3px solid #CACED5;
   border-radius: 5px;
-  box-shadow: 0 7px #CACED5;
 }
 
 .text-center {
   text-align: center;
-}
-
-.text-background {
-	align-self: center;
-	width: -5%;
-	background-color: white;
-	margin: 0 5% 0;
-	padding: 1px 1px 20px 10px;
-	box-shadow: 10px 16px 16px 0 rgba(0,0,0,0.2), -10px -16px 20px 0 rgba(0,0,0,0.19);	
 }
 
 .Title {
@@ -42,11 +31,8 @@
 body { 
 	margin: 0px;
 	padding-top: 150px; 
-	background-color: #1A1D29
-}
-
-.darkmode {
 	background-color: #1A1D29;
+	;
 }
 
 #footer {
@@ -69,9 +55,6 @@ h4{
 	max-width: 90%;
 }
 
-.footer-text {
-	
-}
 
 .footer-logo {
     padding-top: 19px;
@@ -79,10 +62,3 @@ h4{
     margin: 0px auto;
 }
 
-
-.footer {
-    background-color: #090b13;
-	width: 100%;
-    position: relative;
-	margin-bottom: 0;
-}
