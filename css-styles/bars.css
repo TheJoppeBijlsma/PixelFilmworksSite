@@ -9,11 +9,10 @@
 	margin: 6px 0px;
 	height: auto;
 	padding-top: 0px;
-}
-
-#nav-logo {
-	align-content: center;
-	padding-left: 20px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .buttons {

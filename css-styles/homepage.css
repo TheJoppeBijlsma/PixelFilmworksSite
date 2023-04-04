@@ -18,3 +18,12 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+.Title {
+	font-family: "DejaVu Sans", Verdana, "sans-serif";
+}
+
+.Paragraph{
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	font-size: 20px;
+}
