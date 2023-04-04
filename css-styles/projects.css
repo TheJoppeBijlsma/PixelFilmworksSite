@@ -91,18 +91,14 @@ a {
 	text-decoration: none;
 }
 
-header {
+return-header {
 	text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
 	position: absolute;
   	top: 0;
 	z-index: 1;
 }
 
-body {
-            margin: 0;
-            padding: 0;
-            background: rgb(26, 29, 41);
-        }
+
 
         .background-image {
             position: fixed;

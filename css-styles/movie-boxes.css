@@ -30,7 +30,7 @@ div {
     margin: 0px 0px 0px -20px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width : 1017px ){
 .hWfHDK > a, .hWfHDK > div {
     width: calc(16.6667% - 20px);
 	}}
@@ -156,4 +156,3 @@ img {
 video {
     object-fit: contain;
 }
-

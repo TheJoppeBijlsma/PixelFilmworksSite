@@ -95,17 +95,18 @@ footer {
 }
 
 header {
+	position: fixed;
+	width: 100%;
+  	top: 0;
 	background-color: #3B6C9B;
 	height: 80px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	position: fixed;
-	width: 100%;
-  	top: 0;
 	box-shadow: 0 16px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);	
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-	z-index: 1;
+	z-index: 3;
+	overflow:hidden;
 }
 
 .button-text {
@@ -134,7 +135,6 @@ ul li {
 	margin: auto 0;
 	display: none;
 	cursor: pointer;
-	justify-content: flex-end;
 }
 
 .bar1, .bar2, .bar3 {
@@ -195,18 +195,3 @@ ul li {
 .mobile-menu a.active {
   background-color: #3B5671;
 }
-
-@media only screen and (max-width: 1024px) {
-	header nav {
-		display: none;
-	}
-	
-	#hamburger-icon {
-		display: block;
-	}
-}
-
-	
-	#page {
-		padding-left: 0;
-	}
