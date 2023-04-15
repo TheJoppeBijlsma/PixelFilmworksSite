@@ -131,7 +131,7 @@ ul li {
 	
 }
 
-#hamburger-icon {
+.hamburger-icon {
 	margin: auto 0;
 	display: none;
 	cursor: pointer;
@@ -201,7 +201,7 @@ ul li {
 		display: none;
 	}
 	
-	#hamburger-icon {
+	.hamburger-icon {
 		display: block;
 	}
 }
