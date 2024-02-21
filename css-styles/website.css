@@ -8,3 +8,19 @@ body {
 	background-color: #1A1D29;
 	;
 }
+
+.links {
+	text-decoration: none;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	text-decoration-color: #207DE9;
+	color: white;
+}
+
+.links:hover {
+	text-decoration: none;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	text-decoration-color: #99cccc;
+	color: white;
+}

@@ -24,6 +24,13 @@
 }
 
 .Paragraph{
-	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 	font-size: 20px;
+	line-height: 25px;
+	
+	font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
 }
