@@ -66,12 +66,13 @@
 footer {
   overflow: visible;
   background-color: #3B6C9B;
-  position: relative ; /* Set the navbar to fixed position */
+  position: fixed ; /* Set the navbar to fixed position */
   bottom: 0; /* Position the bar at the bottom of the page */
   width: 100%; /* Full width */
   padding: 15px;
   box-shadow: 0 -16px 16px 0 rgba(0,0,0,0.2), 0 -6px 20px 0 rgba(0,0,0,0.19);	
   display: flex;
+	
 }
 
 #footer-text{
@@ -79,8 +80,8 @@ footer {
 	font-size: 100%;
 	height: auto;
 	font-weight: 600;
-	color: white;
-	text-shadow: 0px 3px 4px rgba(0,0,0,0.9);
+	color: #BBCED9;
+	/*text-shadow: 0px 3px 4px rgba(0,0,0,0.9);*/
 }
 
 .homefooter{

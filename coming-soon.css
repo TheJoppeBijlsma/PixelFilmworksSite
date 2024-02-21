@@ -6,7 +6,21 @@
   	margin-right: auto;
 	width: 50%;	
     display: block;
-	padding-top: 15%;
+}
+
+.footersoon{
+	display: flex;
+	align-content: center;
+}
+
+.devmode {
+	text-decoration: none;
+	
+}
+
+#devtext {
+	text-decoration: none;
+	color: #3B6C9B;
 }
 
 @media (max-width: 900px) {
