@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* CSS Document */
+
+footer {
+	height: 169px;
+	width: 100vw;
+	background-color: #060714;
+	margin-top: auto;
+	margin-bottom: 0;
+	margin-left: 0;
+	text-align: center;
+}
+
+.footer-text {
+	color: white;
+	font-size: 12;
+	font-weight: 300;
+	align-self: center;
+	font-family: "Inter", sans-serif;
+}

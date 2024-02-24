@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.live-action-logo {
+	margin: 23% 15% 23% 15%;
+}
+
+.griffincraft-logo {
+	margin: 23% 15% 23% 15%;
+}
+		
+.lego-logo {
+	margin: 17.5% 26% 17.5% 27%;
+}
+		
+.minecraft-logo {
+	margin: 19% 14% 19% 14%;
+}
+
+.image-container{
+	display: flex;
+	justify-content: center;
+	position: relative;
+	width: 316px;
+	height: auto;
+	transition: all 300ms; /* Animation */
+	min-width: 0;
+}
+
+.block{
+	position: absolute; 
+  	top: 0; 
+  	left: 0; 
+	width: 100%;
+	border-radius: 9px;
+	box-shadow: 0px 26px 30px -10px rgba(0, 0, 0, 0.69), 0px 16px 10px -10px rgba(0, 0, 0, 0.73);
+}
+
+.left {
+	margin-right: 2%;
+}
+
+.left-box {
+	margin-right: 4%;
+}
+		
+.bottom-image{
+	border-radius: 9px;
+	opacity: 0;
+	z-index: 1;
+	outline: 1px solid white;
+	transition: all 300ms;
+	outline-offset: 4px;
+}
+		
+.image-container:hover {
+	transform: scale(1.05);
+	z-index: 3
+}
+		
+.image-container:hover .bottom-image {
+	opacity: 100;
+	box-shadow: 0px 26px 30px -10px rgba(0, 0, 0, 0.69), 0px 16px 10px -10px rgba(0, 0, 0, 0.73);
+	outline: 4px solid white;
+  	outline-offset: 5px;
+}
+		
+.bottom-image, .top-image { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+min-width: 0;
+	flex-shrink: 1;
+} 
+		
+.top-image { 
+  	z-index: 2;
+} 
+	
+.themeboxes{
+	display: flex;
+  	justify-content: space-between;
+  	align-items: center;
+	/*cursor: pointer;*/
+	margin: 0 auto;
+	width: calc(93vw - 48px);
+	flex-shrink: 1;
+	min-width: 0;
+}
+@media only screen and (max-width: 740px) {		
+	.Budwj {
+    	padding: 30px 0px 32% 0;
+		min-width: 0;
+	}
+}
+
+@media only screen and (min-width: 741px) {
+	.Budwj {
+    	padding: 30px 0px 16% 0;
+		min-width: 0;
+	}
+}
+
+.container{
+	place-content: center;
+    display: flex;
+    flex-flow: row wrap;
+	min-width: 0;
+}
+
+@media only screen and (max-width: 740px) {
+    #themes-row {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 741px) {
+    #themes-block {
+        display: none;
+    }
+}
+
+.bottom-row{
+	margin-top: 31.5%;
+}
