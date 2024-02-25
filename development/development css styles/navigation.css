@@ -10,11 +10,15 @@ footer {
 	text-align: center;
 }
 
-.footer-text {
+.footer-text:before {
 	color: #CACACA;
 	font-size: 13px;
 	font-weight: 200;
-	margin-top: 10px;
 	align-self: center;
 	font-family: "Inter", sans-serif;
+	content: "©2021-2024 | Pixel Filmworks";
+}
+
+.footer-image {
+	margin: 24px 0 10px 0;
 }

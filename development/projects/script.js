@@ -12,7 +12,21 @@ $(document).ready(function(){
 		centerMode: false,
 		responsive: [
 			{
-				breakpoint: 992,
+				breakpoint: 1450,
+				settings: {
+					slidesToScroll: 4,
+					slidesToShow: 4
+				}
+			},
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToScroll: 3,
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 900,
 				settings: {
 					slidesToScroll: 2,
 					slidesToShow: 2
@@ -24,7 +38,7 @@ $(document).ready(function(){
 					slidesToScroll: 1,
 					slidesToShow: 1
 				}
-			}
+			},
 		]
   });
 });  
