@@ -101,7 +101,7 @@ min-width: 0;
 	}
 }
 
-.container{
+.theme-container{
 	place-content: center;
     display: flex;
     flex-flow: row wrap;
