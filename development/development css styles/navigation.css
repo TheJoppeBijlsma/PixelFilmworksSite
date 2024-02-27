@@ -22,3 +22,17 @@ footer {
 .footer-image {
 	margin: 24px 0 10px 0;
 }
+
+.header-background {
+background: rgba( 19, 23, 42, 0.25 );
+backdrop-filter: blur( 6px );
+-webkit-backdrop-filter: blur( 6px );
+}
+
+header {
+	height: 100px;
+	width: 100%;
+	margin: 0;
+	position: fixed;
+	z-index: 5;
+}
