@@ -5,38 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pixel Filmworks</title>
 <link rel="stylesheet" href="../../css-styles/website.css">
-<link rel="stylesheet" href="../../css-styles/bars.css">
+<link rel="stylesheet" href="../development css styles/navigation.css">
 <link rel="stylesheet" href="../../css-styles/homepage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 	
-<header>
-	<div style="width: 33.33%"><img src="../Assets/Small_Logo.png" width="170px" height="auto" alt=""/></div>	
-	<h style="width: 33.33%, text-align: center" id="page-name">Home</h>
-	<nav style="width: 33.33%">
-        <ul style="text-align: right">
-			<a class="desktop-disabled">Home</a>
-			<a class="desktop" href="http://pixelfilmworks.com/development/projects/">Projects</a>
-			<a class="desktop" href="http://pixelfilmworks.com/socials/">Socials</a>
-		</ul>
-	</nav>
-	<div style="width: 33.33%, text-align: right" id="hamburger-icon" onClick="toggleMobileMenu(this)">
-		<div class="bar1"></div>
-		<div class="bar2"></div>
-		<div class="bar3"></div>
-		<ul class="mobile-menu">
-			<li><a class="mobile" href="http://pixelfilmworks.com/development/projects/">Projects</a></li>
-			<li><a class="mobile" href="http://pixelfilmworks.com/socials/">Socials</a> </li>
-		</ul>
-	</div>
-</header>
-	
-<script>
-	function toggleMobileMenu(menu) {
-		menu.classList.toggle("change");
-	}
-</script>
-	
 <body>
+<!-- Header -->
+<div class="header">
+  <a href="https://pixelfilmworks.com/development/home"><img src="../../Assets/Small_Logo.png" width="auto" height="70px" style="margin: 10px 0 0 10px;" alt=""/></a>
+  <div class="navbar-right">
+    <a class="nav-button" href="https://pixelfilmworks.com/development/home">
+		<span class="material-symbols-outlined nav-icon">home</span>
+		<p class="nav-link-hover">Home</p>
+	</a>
+    <a class="nav-button active" href="#projects">
+		<span class="material-symbols-outlined nav-icon">movie</span>
+		<p class="nav-link-hover">Projects</p>
+	</a>
+	<a class="nav-button" href="https://pixelfilmworks.com/development/socials">
+		<span class="material-symbols-outlined nav-icon">group</span>
+		<p class="nav-link-hover">Socials</p>
+	</a>
+  </div>
+</div>
+	
 	<main aling="center" class="card">
 		<h1 class="Title">About:</h1>
  	  	<p1 class="Paragraph">PixelFilmworks is a film production company, creating animations, live action shortfilms, and just fun videos. The videos that will be created are published on the YouTube Channel and this website, on the project page that is currently being constructed.</p1>
@@ -54,9 +47,13 @@
 	<div>
 	</div>
 	
-	<div class="homefooter">
-		<p1 id="footer-text">© 2021-2023 Pixel Filmworks.</p1>
+	<div home-footer>
+	
 	</div>
+	<div class="home-footer">
+		<img class="footer-image" src="../development Assets/Footer_Filmworks_Logo.png" width="97" height="auto" alt=""/>
+		<p class="footer-text"></p>
+</div>
 </body>
 </html>
 
