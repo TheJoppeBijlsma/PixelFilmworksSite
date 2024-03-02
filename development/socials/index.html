@@ -4,63 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pixel Filmworks</title>
-<link rel="stylesheet" href="../css-styles/website.css">
-<link rel="stylesheet" href="../css-styles/new-nav-bars.css">
-<link rel="stylesheet" href="../css-styles/socials.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://cdn.iconly.io/kits/DayzKZbvWXEL/v_ec0c804/iconly.min.css" rel="stylesheet"/>	
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	
+<link rel="stylesheet" href="../development css styles/navigation.css">
+<link rel="stylesheet" href="../development css styles/Projects Page.css">	
+
+<link rel="stylesheet" href="../../css-styles/socials.css">
+	
 </head>
 	<style>
 	body { 
-    padding-top: 150px; 
+    padding-top: 200px; 
 }
 	</style>
-<script>
-	function toggleMobileMenu(menu) {
-		menu.classList.toggle("change");
-	}
-</script>
-<header>
-	<!--<div style="width: 33.33%"><img src="../Assets/Small_Logo.png" width="150px" height="auto" alt=""/></div>	
-	<div style="width: 33.33%, text-align: center" id="page-name"><a>Socials</a></div>
-	<nav style="width: 33.33%">
-        <ul style="text-align: right">
-			<a class="desktop" href="http://pixelfilmworks.com/">Home</a>
-			<a class="desktop" href="http://pixelfilmworks.com/projects/">Projects</a>
-			<a class="desktop-disabled">Socials</a>
-		</ul>
-	</nav>
-	<div id="hamburger-icon" onClick="toggleMobileMenu(this)">
-		<div class="bar1"></div>
-		<div class="bar2"></div>
-		<div class="bar3"></div>
-		<ul class="mobile-menu">
-			<li><a class="mobile" href="http://pixelfilmworks.com/">Home</a></li>
-			<li><a class="mobile" href="http://pixelfilmworks.com/projects/">Projects</a> </li>
-		</ul>
-	</div>-->
-	
-	
-	<div class="topnav">
-
-  <!-- Centered link -->
-  <div class="topnav-centered">
-    <a>Socials</a>
-  </div>
-
-  <!-- Left-aligned links (default) -->
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-
-  <!-- Right-aligned links -->
-  <div class="topnav-right">
-    <a href="#search">Search</a>
-    <a href="#about">About</a>
-  </div>
-
-</div>
-	
-</header>
-	
 <body>
+	
+	<!-- Header -->
+<div class="header">
+  <a href="https://pixelfilmworks.com/development/home"><img src="../../Assets/Small_Logo.png" width="auto" height="70px" style="margin: 10px 0 0 10px;" alt=""/></a>
+  <div class="navbar-right">
+    <a class="nav-button" href="https://pixelfilmworks.com/development/home">
+		<span class="material-symbols-outlined nav-icon">home</span>
+		<p class="nav-link-hover">Home</p>
+	</a>
+    <a class="nav-button" href="https://pixelfilmworks.com/development/projects">
+		<span class="material-symbols-outlined nav-icon">movie</span>
+		<p class="nav-link-hover">Projects</p>
+	</a>
+	<a class="nav-button active">
+		<span class="material-symbols-outlined nav-icon">group</span>
+		<p class="nav-link-hover">Socials</p>
+	</a>
+  </div>
+</div>
 	
 	<div class="text-center">
 	<h4>Follow us on:</h4>
@@ -74,15 +52,12 @@
   		<a class="discord-button" href="https://discord.gg/hedJ2EAHX3">Discord</a>
 	</div>
 
-<script id="fiverr-seller-widget-script-e8c45e5f-27ce-4125-b5b9-b64e0d42825f" src="https://widgets.fiverr.com/api/v1/seller/joppebijlsma?widget_id=e8c45e5f-27ce-4125-b5b9-b64e0d42825f" data-config="{'category_name':'\n                                    Video \u0026 Animation\n\n'}" async="true" defer="true"></script>
-
+<script  src="../Scripts/Header-Color-Change.js"></script>
 	
 </body>
 	
-	<footer class="sc-iBEsjs gTKUFW footer footer__container" id="footer" style="margin-top: 20px;">
-	<div class="eQGcMI">
-		<div class="sc-TOsTZ cxLgNW" alt="footer-logo" aria-label="logo" title="logo" role="img" id="footer-logo" placeholder="logo" tabindex="0" style="width: 100%; margin: 0px;"><div class="logo container--hw-full "></div></div>
-	</div>
-	<div class="metadata text-color--secondary padding--top-2 padding--bottom-6 text--center">© Pixel Filmworks. All rights reserved.</div>
-</footer>
+	<div class="home-footer">
+		<img class="footer-image" src="../development Assets/Footer_Filmworks_Logo.png" width="97" height="auto" alt=""/>
+		<p class="footer-text"></p>
+</div>
 </html>
