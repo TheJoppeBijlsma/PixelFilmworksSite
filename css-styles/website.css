@@ -12,15 +12,13 @@ body {
 .links {
 	text-decoration: none;
 	text-decoration: underline;
-	text-underline-offset: 4px;
+	text-underline-offset: 3px;
 	text-decoration-color: #207DE9;
 	color: white;
+	border-radius: 4px;
 }
 
 .links:hover {
-	text-decoration: none;
-	text-decoration: underline;
-	text-underline-offset: 4px;
 	text-decoration-color: #99cccc;
 	color: white;
 }
