@@ -1,22 +1,20 @@
 @charset "UTF-8";
 /* CSS Document */
 .movie-box {
-	width: 256px;
-	height: 144px;
+	width: 100%;
+	height: auto;
 	border-radius: 5px;
 	box-shadow: 0px 26px 30px -10px rgba(0, 0, 0, 0.69), 0px 16px 10px -10px rgba(0, 0, 0, 0.73);
 	text-align: center;
  	margin-top: 15px;
-	transition: all 200ms, transform 300ms;
+	transition: all 200ms ease, transform 300ms ease;
 	outline: 0px solid white;
 	outline-offset: 3px;
-	z-index: 1;
 }
 
 .movie-box:hover {
-	transform: scale(1.04);
+	transform: scale(1.05);
 	outline: 3px solid white;
-  	
 }
 
 .p{
@@ -27,6 +25,10 @@
 	padding-top: 40px;
 	text-shadow: 2px 3px 1px rgba(0, 0, 0, 0.69);
 	text-decoration: none;
+}
+
+.movie-category {
+	font-size: 1.3vw;
 }
 
 .container-fluid {
@@ -43,7 +45,8 @@
 }
 
 .slick-slide {
-  height: 210px;
+  height: auto;
+	margin-bottom: 4%;
 }
 .slick-slide .col-xs-12 > div {
   background-color: orange;
@@ -62,9 +65,10 @@ content: url('https://unpkg.com/css.gg@2.0.0/icons/css/chevron-right.css');;
 }
 .slick-next,
 .slick-prev {
-  height: 300px;
-  width: calc(3.5vw + 24px);
-  margin-top: -20px;
+  height: 30vw;
+  width: calc(5vw);
+  margin-top: -1.5%;
+	
   z-index: 2;
   opacity: 0;
   transition: opacity 300ms;
