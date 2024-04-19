@@ -107,6 +107,7 @@ min-width: 0;
     flex-flow: row wrap;
 	min-width: 0;
 	margin-left: 1vw;
+	margin-top: calc(1vw - 50px);
 }
 
 @media only screen and (max-width: 740px) {

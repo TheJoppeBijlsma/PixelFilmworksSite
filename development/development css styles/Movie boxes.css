@@ -17,6 +17,23 @@
 	outline: 3px solid white;
 }
 
+.header-movie-box {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: 0px 26px 30px -10px rgba(0, 0, 0, 0.69), 0px 16px 10px -10px rgba(0, 0, 0, 0.73);
+	text-align: center;
+ 	margin-top: 30px;
+	transition: all 200ms;
+	outline: 4px solid rgba(0,0,0,0.00);
+	outline-offset: -4px;
+}
+
+.header-movie-box:hover {
+	outline-color: white;
+}
+
+
 .p{
 	color: aliceblue;
 	font-size: 30px;
@@ -34,12 +51,19 @@
 .container-fluid {
   overflow: hidden;
   position: relative;
+	max-height: 30vw;
 }
+
 .container {
   width: calc(93vw - 48px);
+}
+
+.slider-services {
+  position: initial; /*important, allows container-fluid to be the relative*/
 	
 }
-.slider-services {
+
+.slider-banner {
   position: initial; /*important, allows container-fluid to be the relative*/
 	
 }
@@ -48,8 +72,9 @@
   height: auto;
 	margin-bottom: 4%;
 }
+
 .slick-slide .col-xs-12 > div {
-  background-color: orange;
+  
 }
 
 .slick-list {

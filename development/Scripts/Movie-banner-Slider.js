@@ -24,14 +24,22 @@ $(document).ready(function(){
 	$('.slider-banner').slick({
     dots: true,
     arrows: true,
-		infinite: true,
+		infinite: false,
 		slidesToScroll: 1,
 		slidesToShow: 1,
+		appendDots: '.slider-dots',
 		accessibility: true,
 		variableWidth: false,
 		focusOnSelect: false,
 		centerMode: false,
-		autoplay: true,
-		autoplaySpeed: 2000,
+		responsive: [
+			{
+				breakpoint: 741,
+				settings: {
+					slidesToScroll: 2,
+					slidesToShow: 2
+				}
+			}
+		]
   });
 });  
