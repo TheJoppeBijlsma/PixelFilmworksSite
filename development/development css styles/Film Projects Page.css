@@ -123,6 +123,13 @@ main {
     color: #f9f9f9;
 }
 
+.text-color-movie-info {
+	color: #CACACA;
+	font-size: 12px;
+	letter-spacing: -.1px;
+    line-height: 1.5;
+}
+
 .margin--0 {
     margin: 0;
 }
