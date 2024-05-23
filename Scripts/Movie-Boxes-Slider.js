@@ -32,6 +32,6 @@ $(document).ready(function(){
 		focusOnSelect: false,
 		centerMode: false,
 		autoplay: true,
-		autoplaySpeed: 3000,
+		autoplaySpeed: 5000,
   });
 });  
