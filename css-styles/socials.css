@@ -24,12 +24,19 @@ text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   color: white;
 }
 
-.discord-button:hover {background-color: #7681FB}
+.discord-button:hover {
+	background-color: #7681FB;
+	color: white;
+  	text-decoration: none;
+}
+
 
 .discord-button:active {
   background-color: #3946D3;
   box-shadow: 0 8px #2C3693;
   transform: translateY(4px);
+	color: white;
+  	text-decoration: none;
 }
 
 .youtube-button {
@@ -50,12 +57,18 @@ text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   color: white;
 }
 
-.youtube-button:hover {background-color: #E3504D}
+.youtube-button:hover {
+	background-color: #E3504D;
+	color: white;
+  	text-decoration: none;
+}
 
 .youtube-button:active {
   background-color: #A81B18;
   box-shadow: 0 8px #A52123;
   transform: translateY(4px);
+	color: white;
+  	text-decoration: none;
 }
 
 .twitter-button {
@@ -76,12 +89,18 @@ text-shadow: 0px 7px 8px rgba(0,0,0,0.69);
   color: white;
 }
 
-.twitter-button:hover {background-color: #6BB8F2}
+.twitter-button:hover {
+	background-color: #6BB8F2;
+	color: white;
+  	text-decoration: none;
+}
 
 .twitter-button:active {
   background-color: #2686D0;
   box-shadow: 0 8px #2B76AF;
   transform: translateY(4px);
+	color: white;
+  	text-decoration: none;
 }
 
 .space {
