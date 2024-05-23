@@ -2,10 +2,6 @@
 /* CSS Document */
 /*styles for all pages*/
 
-html {
-  overflow-y: scroll;
-}
-
 body { 
 	background-color:#13172A;
 	font-family: Arial,Helvetica,sans-serif;
