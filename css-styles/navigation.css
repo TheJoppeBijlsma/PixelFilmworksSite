@@ -17,6 +17,7 @@ footer {
 	z-index: 99;
 }
 
+
 @media (max-width: 650px) {
 .footer-text:before {
 	color: #CACACA;
@@ -26,6 +27,9 @@ footer {
 	font-family: "Inter", sans-serif;
 	content: "© 2021-2024 | Pixel Filmworks";
 	transition: all 200ms;
+	margin-right: 10px;
+	margin-top: 0px;
+	padding: 0px;
 }
 }
 
@@ -38,6 +42,43 @@ footer {
 	font-family: "Inter", sans-serif;
 	content: "© 2021-2024 | Pixel Filmworks";
 	transition: all 200ms;
+	margin-right: 10px;
+	margin-top: 0px;
+	padding: 0px;
+}
+}
+
+@media (max-width: 650px) {
+.cookie {
+	color: #CACACA;
+	font-size: 10px;
+	font-weight: 200;
+	align-self: center;
+	font-family: "Inter", sans-serif;
+	transition: all 200ms;
+	text-decoration: none;
+	text-decoration: underline;
+	border-radius: 4px;
+	margin-left: 10px;
+	margin-top: -10px;
+	padding: 0px;
+}
+}
+
+@media (min-width: 650px) {
+.cookie {
+	color: #CACACA;
+	font-size: 13px;
+	font-weight: 200;
+	align-self: center;
+	font-family: "Inter", sans-serif;
+	transition: all 200ms;
+	text-decoration: none;
+	text-decoration: underline;
+	border-radius: 4px;
+	margin-left: 10px;
+	margin-top: -10px;
+	padding: 0px;
 }
 }
 
