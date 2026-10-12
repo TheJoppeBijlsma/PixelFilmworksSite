@@ -1,6 +1,6 @@
 // Shared Pixel Filmworks navigation + project runtime
 (() => {
-  const RUNTIME = '20261013-3';
+  const RUNTIME = '20261013-4';
 
   const updateHeader = () => {
     const header = document.querySelector('.header');
@@ -18,9 +18,13 @@
     style.id = 'pfw-runtime-overrides';
     style.textContent = `
       .footer-text:before{content:"© 2021-2026 | Pixel Filmworks" !important}
-      .watch-remaining{display:block;font-size:10px;line-height:1;letter-spacing:.3px;margin-left:8px;opacity:.72;text-transform:none}
-      .restart-button{min-width:134px;width:auto;padding:0 18px}
-      @media(max-width:520px){.play-and-trailer-container{gap:6px}.film-button-play,.film-button-trailer{margin-right:4px}.watch-remaining{display:none}}
+      .pfw-start-over{display:inline-flex!important;align-items:center;justify-content:center;gap:8px;min-width:0!important;width:auto!important;padding:0 18px!important;background:rgba(9,11,22,.78)!important;border:1px solid rgba(255,255,255,.28)!important;color:#fff!important}
+      .pfw-start-over:hover{background:rgba(255,255,255,.13)!important}
+      .pfw-watch-progress-detail{width:min(450px,100%);margin-top:11px;color:rgba(255,255,255,.76);font-family:Inter,sans-serif;font-size:12px}
+      .pfw-watch-progress-detail-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+      .pfw-watch-progress-detail-track{display:block;width:100%;height:4px;border-radius:99px;background:rgba(255,255,255,.24);overflow:hidden}
+      .pfw-watch-progress-detail-fill{display:block;height:100%;border-radius:inherit;background:#fff}
+      @media(max-width:520px){.play-and-trailer-container{gap:7px;flex-wrap:wrap}.film-button-play,.film-button-trailer{margin-right:4px}.pfw-watch-progress-detail{margin-top:10px}}
     `;
     document.head.appendChild(style);
   };
@@ -60,6 +64,8 @@
       slidesToScroll: 1,
       slidesToShow: 5,
       accessibility: true,
+      variableWidth: false,
+      centerMode: false,
       responsive: [
         { breakpoint: 1100, settings: { slidesToShow: 4 } },
         { breakpoint: 850, settings: { slidesToShow: 3 } },
@@ -72,45 +78,51 @@
     const projects = window.PFW_PROJECTS || [];
     const normalizedPath = `${path}/`;
     const current = projects.find(item => normalizedPath === item.detailUrl || normalizedPath.endsWith(item.detailUrl));
-    if (!current) {
-      console.warn('[Pixel Filmworks] Project not found in catalog for', normalizedPath);
-      return;
-    }
+    if (!current) return;
 
     let progress = null;
     try { progress = JSON.parse(localStorage.getItem(`pfw:watch:${current.id}`)); } catch (_) {}
 
     const playContainer = document.querySelector('.play-and-trailer-container');
-    const oldPlay = playContainer?.querySelector('.film-button-play');
+    const play = playContainer?.querySelector('.film-button-play');
     const hasProgress = progress && Number(progress.currentTime) > 10 && Number(progress.duration) > 0 && Number(progress.currentTime) < Number(progress.duration) - 15;
     const watchUrl = `/watch/?id=${encodeURIComponent(current.id)}`;
 
-    if (oldPlay) {
-      oldPlay.href = hasProgress ? `${watchUrl}&mode=continue` : `${watchUrl}&mode=restart`;
-      const text = oldPlay.querySelector('.film-play-text');
+    if (play) {
+      play.href = hasProgress ? `${watchUrl}&mode=continue` : `${watchUrl}&mode=restart`;
+      const text = play.querySelector('.film-play-text');
       if (text) text.textContent = hasProgress ? 'CONTINUE' : 'PLAY';
     }
 
-    if (hasProgress && playContainer && !playContainer.querySelector('.restart-button')) {
-      const remaining = Math.max(0, Number(progress.duration) - Number(progress.currentTime));
+    document.querySelector('.pfw-watch-progress-detail')?.remove();
+    playContainer?.querySelector('.pfw-start-over')?.remove();
+
+    if (hasProgress && playContainer) {
+      const currentTime = Number(progress.currentTime);
+      const duration = Number(progress.duration);
+      const remaining = Math.max(0, duration - currentTime);
       const mins = Math.max(1, Math.ceil(remaining / 60));
-      if (oldPlay && !oldPlay.querySelector('.watch-remaining')) {
-        const remainingEl = document.createElement('span');
-        remainingEl.className = 'watch-remaining';
-        remainingEl.textContent = `${mins}m left`;
-        oldPlay.appendChild(remainingEl);
-      }
+      const pct = Math.max(0, Math.min(100, (currentTime / duration) * 100));
+
       const restart = document.createElement('a');
-      restart.className = 'film-button-trailer restart-button';
+      restart.className = 'film-button-trailer pfw-start-over';
       restart.href = `${watchUrl}&mode=restart`;
-      restart.innerHTML = '<span class="film-play-text">RESTART</span>';
+      restart.innerHTML = '<span aria-hidden="true" style="font-size:17px;line-height:1">↺</span><span class="film-play-text">START OVER</span>';
       playContainer.insertBefore(restart, playContainer.children[1] || null);
+
+      const progressBlock = document.createElement('div');
+      progressBlock.className = 'pfw-watch-progress-detail';
+      progressBlock.innerHTML = `
+        <div class="pfw-watch-progress-detail-row"><span>Continue watching</span><span>${mins} min left</span></div>
+        <span class="pfw-watch-progress-detail-track"><span class="pfw-watch-progress-detail-fill" style="width:${pct}%"></span></span>
+      `;
+      playContainer.parentNode.insertBefore(progressBlock, playContainer.nextSibling);
     }
 
     const score = (candidate) => {
       let points = 0;
-      if (candidate.series && current.series && candidate.series === current.series) points += 8;
-      if (candidate.type === current.type) points += 4;
+      if (candidate.series && current.series && candidate.series === current.series) points += 10;
+      if (candidate.type === current.type) points += 5;
       points += (candidate.tags || []).filter(tag => (current.tags || []).includes(tag)).length * 3;
       if (candidate.year === current.year) points += 1;
       points += (candidate.publishedOrder || 0) / 100;
@@ -150,12 +162,6 @@
   };
 
   loadScript(`/data/projects.js?v=${RUNTIME}`)
-    .then(() => {
-      if (isProjectDetail) {
-        enhanceProjectDetail();
-      } else {
-        return loadScript(`/scripts/projects-page.js?v=${RUNTIME}`);
-      }
-    })
+    .then(() => isProjectDetail ? enhanceProjectDetail() : loadScript(`/scripts/projects-page.js?v=${RUNTIME}`))
     .catch(error => console.error('[Pixel Filmworks] Project runtime failed', error));
 })();
