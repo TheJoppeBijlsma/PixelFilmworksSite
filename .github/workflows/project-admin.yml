@@ -1,0 +1,56 @@
+name: Pixel Filmworks Project Admin
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  manage-project:
+    if: >-
+      github.event.issue.author_association == 'OWNER' &&
+      contains(join(github.event.issue.labels.*.name, ','), 'pfw-admin')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Apply project change
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+        run: node .github/scripts/project-admin.mjs
+
+      - name: Commit project catalog
+        run: |
+          git config user.name "Pixel Filmworks Admin"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/projects.json data/projects.js
+          if git diff --cached --quiet; then
+            echo "No project changes to commit."
+          else
+            git commit -m "Update Pixel Filmworks project catalog"
+            git push origin HEAD:main
+          fi
+
+      - name: Close successful admin request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ Project catalog updated successfully. GitHub Pages will publish the change from `main`.'
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
