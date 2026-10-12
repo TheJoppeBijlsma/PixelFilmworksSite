@@ -1,0 +1,123 @@
+name: New Pixel Filmworks project
+description: Create a new film, documentary, or series entry.
+title: "[Project Admin] Create: "
+labels: ["pfw-admin", "pfw-create"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is processed automatically only when it is submitted by the repository owner.
+        **Hidden** removes a project from the public website, but it is not confidential because this repository is public.
+        You can drag images into the media fields below; GitHub will insert an attachment URL automatically.
+  - type: input
+    id: project_id
+    attributes:
+      label: Project ID
+      description: Lowercase stable ID, for example `my-new-film`. Do not change this later.
+      placeholder: my-new-film
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      placeholder: My New Film
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Draft
+        - Hidden
+        - Published
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Documentary
+        - Short film
+        - Series
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      placeholder: "2026"
+    validations:
+      required: true
+  - type: input
+    id: duration
+    attributes:
+      label: Duration
+      description: Display value, for example `12m` or `1h 04m`.
+      placeholder: 12m
+  - type: input
+    id: genre
+    attributes:
+      label: Genre
+      placeholder: Documentary
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: Short description shown on the project page.
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma separated. Used for More to Watch.
+      placeholder: live-action, documentary, human-story
+  - type: input
+    id: series
+    attributes:
+      label: Series
+      description: Only for episodic content. Use the same series key for every episode.
+      placeholder: griffincraft
+  - type: input
+    id: episode
+    attributes:
+      label: Episode
+      placeholder: "1"
+  - type: input
+    id: youtube
+    attributes:
+      label: YouTube video
+      description: Paste the YouTube URL or the 11-character video ID.
+      placeholder: https://www.youtube.com/watch?v=...
+  - type: input
+    id: trailer
+    attributes:
+      label: Trailer URL
+      description: Optional website or video URL for the trailer.
+  - type: textarea
+    id: thumbnail
+    attributes:
+      label: Thumbnail
+      description: Drag the thumbnail here, or paste an existing repository path/URL. Recommended 16:9.
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Drag the cinematic background/backdrop here, or paste a repository path/URL.
+  - type: textarea
+    id: logo
+    attributes:
+      label: Logo
+      description: Optional transparent project logo. Drag it here or paste a repository path/URL.
+  - type: dropdown
+    id: featured
+    attributes:
+      label: Featured
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
