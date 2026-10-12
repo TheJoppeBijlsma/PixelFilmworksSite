@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 const body = process.env.ISSUE_BODY || '';
-const labels = (process.env.ISSUE_LABELS || '').split(',').map(v => v.trim()).filter(Boolean);
+const title = process.env.ISSUE_TITLE || '';
 const catalogPath = 'content/projects.json';
 const publicPath = 'data/projects.js';
 
@@ -83,11 +83,11 @@ const numberValue = (value, fallback) => {
 
 let projects = readCatalog();
 let operation = '';
-if (labels.includes('pfw-create')) operation = 'create';
-if (labels.includes('pfw-edit')) operation = 'edit';
-if (labels.includes('pfw-status')) operation = 'status';
-if (labels.includes('pfw-delete')) operation = 'delete';
-if (!operation) throw new Error('No supported Pixel Filmworks admin operation label found.');
+if (title.startsWith('[Project Admin] Create:')) operation = 'create';
+if (title.startsWith('[Project Admin] Edit:')) operation = 'edit';
+if (title.startsWith('[Project Admin] Status:')) operation = 'status';
+if (title.startsWith('[Project Admin] Delete:')) operation = 'delete';
+if (!operation) throw new Error('Unsupported Pixel Filmworks admin request title.');
 
 const rawId = field('Project ID');
 const id = slug(rawId);
@@ -95,15 +95,15 @@ if (!id) throw new Error('Project ID is required.');
 
 if (operation === 'create') {
   if (projects.some(project => project.id === id)) throw new Error(`Project ${id} already exists.`);
-  const title = field('Title');
+  const projectTitle = field('Title');
   const status = normalizeStatus(field('Status')) || 'draft';
   const type = normalizeType(field('Type'));
   const year = numberValue(field('Year'), new Date().getFullYear());
-  if (!title || !type) throw new Error('Title and Type are required.');
+  if (!projectTitle || !type) throw new Error('Title and Type are required.');
   const maxOrder = projects.reduce((max, project) => Math.max(max, Number(project.publishedOrder) || 0), 0);
   const project = {
     id,
-    title,
+    title: projectTitle,
     status,
     type,
     year,
@@ -132,10 +132,8 @@ if (operation === 'edit') {
   const current = projects[index];
   const setIf = (key, value) => { if (value !== '' && value !== undefined) current[key] = value; };
   setIf('title', field('Title'));
-  const status = normalizeStatus(field('Status'));
-  setIf('status', status);
-  const type = normalizeType(field('Type'));
-  setIf('type', type);
+  setIf('status', normalizeStatus(field('Status')));
+  setIf('type', normalizeType(field('Type')));
   setIf('year', numberValue(field('Year'), undefined));
   setIf('durationLabel', field('Duration'));
   setIf('genre', field('Genre'));
