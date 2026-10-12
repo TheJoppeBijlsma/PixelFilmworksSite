@@ -1,7 +1,6 @@
 name: Delete Pixel Filmworks project
 description: Remove a project from the managed catalog.
 title: "[Project Admin] Delete: "
-labels: ["pfw-admin", "pfw-delete"]
 body:
   - type: markdown
     attributes:
