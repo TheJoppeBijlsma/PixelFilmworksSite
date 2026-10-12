@@ -1,0 +1,27 @@
+name: Change project visibility
+description: Publish, hide, or return a project to draft.
+title: "[Project Admin] Status: "
+labels: ["pfw-admin", "pfw-status"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Published** appears on the public Pixel Filmworks website.
+        **Hidden** and **Draft** are removed from the public catalog. Because the repository is public, Hidden is not confidential storage.
+  - type: input
+    id: project_id
+    attributes:
+      label: Project ID
+      placeholder: onbreekbaar
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Draft
+        - Hidden
+        - Published
+    validations:
+      required: true
