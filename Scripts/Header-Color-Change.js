@@ -10,6 +10,7 @@
       : '0 26px 30px -10px rgba(0,0,0,0)';
   };
 
+  updateHeader();
   document.addEventListener('DOMContentLoaded', updateHeader);
   window.addEventListener('scroll', updateHeader, { passive: true });
 

@@ -62,15 +62,27 @@
     });
   };
 
-  const recentRow = findRowAfterHeading('Recently Added');
-  if (recentRow) {
-    recentRow.innerHTML = '';
-    projects
-      .sort((a, b) => (b.publishedOrder || 0) - (a.publishedOrder || 0))
-      .forEach(item => recentRow.appendChild(card(item)));
-    initSlider(recentRow);
-  }
+  const populate = (label, items, sortMode = 'recent') => {
+    const row = findRowAfterHeading(label);
+    if (!row || !items.length) return;
+    const sorted = items.slice().sort((a, b) => {
+      if (sortMode === 'episode') return (a.episode || 0) - (b.episode || 0);
+      return (b.publishedOrder || 0) - (a.publishedOrder || 0);
+    });
+    row.innerHTML = '';
+    sorted.forEach(item => row.appendChild(card(item)));
+    initSlider(row);
+  };
 
+  // Keep the existing visual layout, but make every content row read from one catalog.
+  populate('Recently Added', projects);
+  populate('Documentaries', projects.filter(item => item.type === 'documentary'));
+  populate('Shotfilms', projects.filter(item => item.type === 'shortfilm'));
+  populate('Shortfilms', projects.filter(item => item.type === 'shortfilm'));
+  populate('Griffincraft', projects.filter(item => item.series === 'griffincraft'), 'episode');
+  populate('Minecraft Mobs', projects.filter(item => item.series === 'minecraft-mobs'), 'episode');
+
+  const recentRow = findRowAfterHeading('Recently Added');
   const inProgress = projects.map(item => {
     try {
       const progress = JSON.parse(localStorage.getItem(`pfw:watch:${item.id}`));
@@ -79,21 +91,18 @@
     } catch (_) { return null; }
   }).filter(Boolean).sort((a, b) => (b.progress.updatedAt || 0) - (a.progress.updatedAt || 0));
 
-  if (inProgress.length && recentRow) {
+  if (inProgress.length && recentRow && !document.querySelector('.pfw-continue-section')) {
     const recentSection = recentRow.closest('.container-fluid');
     const recentHeading = Array.from(document.querySelectorAll('.movie-category')).find(el => el.textContent.trim().toLowerCase() === 'recently added');
     const recentHeadingContainer = recentHeading?.closest('.container');
-
     const headingContainer = document.createElement('div');
     headingContainer.className = 'container pfw-continue-heading';
     headingContainer.innerHTML = '<h4 class="text-color-primary movie-category">Continue Watching</h4>';
-
     const fluid = document.createElement('div');
     fluid.className = 'container-fluid pfw-continue-section';
     fluid.innerHTML = '<div class="container"><div class="row"><div class="slider-services pfw-continue-row"></div></div></div>';
     const row = fluid.querySelector('.pfw-continue-row');
     inProgress.forEach(({ item, progress }) => row.appendChild(card(item, progress)));
-
     const insertBefore = recentHeadingContainer || recentSection;
     insertBefore.parentNode.insertBefore(headingContainer, insertBefore);
     insertBefore.parentNode.insertBefore(fluid, insertBefore);
