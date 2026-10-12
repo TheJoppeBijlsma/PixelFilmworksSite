@@ -1,7 +1,6 @@
 name: Change project visibility
 description: Publish, hide, or return a project to draft.
 title: "[Project Admin] Status: "
-labels: ["pfw-admin", "pfw-status"]
 body:
   - type: markdown
     attributes:
