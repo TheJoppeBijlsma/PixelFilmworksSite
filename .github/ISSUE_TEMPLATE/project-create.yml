@@ -1,7 +1,6 @@
 name: New Pixel Filmworks project
 description: Create a new film, documentary, or series entry.
 title: "[Project Admin] Create: "
-labels: ["pfw-admin", "pfw-create"]
 body:
   - type: markdown
     attributes:
