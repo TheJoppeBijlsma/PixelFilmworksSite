@@ -6,11 +6,13 @@
   const loading = document.getElementById('loading');
   const error = document.getElementById('error');
   const controls = document.getElementById('controls');
+  const centerPlay = document.getElementById('center-play');
 
   if (!project || !project.youtubeId) {
     loading.hidden = true;
     error.hidden = false;
     controls.hidden = true;
+    centerPlay.hidden = true;
     return;
   }
 
@@ -36,6 +38,11 @@
   let timer;
   let controlsTimer;
   let dragging = false;
+
+  const playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+  const pauseIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>';
+  const volumeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M18 6a8 8 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const muteIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5zM16 9l5 5M21 9l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   const fmt = (seconds) => {
     if (!Number.isFinite(seconds)) return '0:00';
@@ -64,6 +71,12 @@
     timeLabel.textContent = `${fmt(current)} / ${fmt(duration)}`;
   };
 
+  const setPlayingUi = (playing) => {
+    playPause.innerHTML = playing ? pauseIcon : playIcon;
+    playPause.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+    centerPlay.hidden = playing;
+  };
+
   const showControls = () => {
     document.body.classList.add('controls-visible');
     clearTimeout(controlsTimer);
@@ -71,51 +84,79 @@
       if (player && player.getPlayerState && player.getPlayerState() === YT.PlayerState.PLAYING) {
         document.body.classList.remove('controls-visible');
       }
-    }, 2600);
+    }, 2800);
   };
 
   window.onYouTubeIframeAPIReady = () => {
     player = new YT.Player('player', {
       videoId: project.youtubeId,
-      playerVars: { autoplay: 1, controls: 0, disablekb: 1, fs: 0, playsinline: 1, rel: 0, modestbranding: 1, iv_load_policy: 3, cc_load_policy: 1 },
+      playerVars: {
+        autoplay: 1,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        playsinline: 1,
+        rel: 0,
+        modestbranding: 1,
+        iv_load_policy: 3,
+        cc_load_policy: 1
+      },
       events: {
         onReady: () => {
           const resume = mode !== 'restart' && saved && saved.currentTime > 10 && saved.duration > 0 && saved.currentTime < saved.duration - 15;
           player.seekTo(resume ? saved.currentTime : 0, true);
-          player.playVideo();
           loading.hidden = true;
-          showControls();
           updateUi();
+          showControls();
+          player.playVideo();
           timer = setInterval(() => { updateUi(); saveProgress(); }, 1000);
         },
         onStateChange: (event) => {
           const playing = event.data === YT.PlayerState.PLAYING;
-          playPause.textContent = playing ? '❚❚' : '▶';
-          playPause.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+          setPlayingUi(playing);
           showControls();
           if (event.data === YT.PlayerState.ENDED) saveProgress();
         },
-        onError: () => { loading.hidden = true; error.hidden = false; controls.hidden = true; }
+        onError: () => {
+          loading.hidden = true;
+          error.hidden = false;
+          controls.hidden = true;
+          centerPlay.hidden = true;
+        }
       }
     });
   };
 
-  playPause.addEventListener('click', () => {
+  const togglePlay = () => {
     if (!player) return;
     player.getPlayerState() === YT.PlayerState.PLAYING ? player.pauseVideo() : player.playVideo();
     showControls();
-  });
+  };
+
+  playPause.addEventListener('click', togglePlay);
+  centerPlay.addEventListener('click', togglePlay);
   rewind.addEventListener('click', () => player && player.seekTo(Math.max(0, player.getCurrentTime() - 10), true));
   forward.addEventListener('click', () => player && player.seekTo(Math.min(player.getDuration(), player.getCurrentTime() + 10), true));
   restart.addEventListener('click', () => { if (player) { player.seekTo(0, true); player.playVideo(); } });
   mute.addEventListener('click', () => {
     if (!player) return;
-    if (player.isMuted()) { player.unMute(); mute.textContent = '🔊'; } else { player.mute(); mute.textContent = '🔇'; }
+    if (player.isMuted()) {
+      player.unMute();
+      mute.innerHTML = volumeIcon;
+      mute.setAttribute('aria-label', 'Mute');
+    } else {
+      player.mute();
+      mute.innerHTML = muteIcon;
+      mute.setAttribute('aria-label', 'Unmute');
+    }
   });
   volume.addEventListener('input', () => {
     if (!player) return;
     player.setVolume(Number(volume.value));
-    if (Number(volume.value) > 0 && player.isMuted()) player.unMute();
+    if (Number(volume.value) > 0 && player.isMuted()) {
+      player.unMute();
+      mute.innerHTML = volumeIcon;
+    }
   });
   timeline.addEventListener('pointerdown', () => dragging = true);
   timeline.addEventListener('input', () => {
@@ -132,10 +173,10 @@
     try { if (!document.fullscreenElement) await shell.requestFullscreen(); else await document.exitFullscreen(); } catch (_) {}
   });
 
-  ['mousemove','pointermove','touchstart','click'].forEach(name => document.addEventListener(name, showControls, { passive: true }));
+  ['mousemove','pointermove','touchstart'].forEach(name => document.addEventListener(name, showControls, { passive: true }));
   document.addEventListener('keydown', (event) => {
     if (!player) return;
-    if (event.code === 'Space') { event.preventDefault(); playPause.click(); }
+    if (event.code === 'Space') { event.preventDefault(); togglePlay(); }
     if (event.code === 'ArrowLeft') player.seekTo(Math.max(0, player.getCurrentTime() - 10), true);
     if (event.code === 'ArrowRight') player.seekTo(Math.min(player.getDuration(), player.getCurrentTime() + 10), true);
     if (event.key.toLowerCase() === 'f') fullscreen.click();
