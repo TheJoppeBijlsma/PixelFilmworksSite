@@ -1,0 +1,101 @@
+name: Edit Pixel Filmworks project
+description: Change one or more fields of an existing project.
+title: "[Project Admin] Edit: "
+labels: ["pfw-admin", "pfw-edit"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Enter the existing **Project ID** and only fill the fields you want to change. Empty fields keep their current value.
+        For media, you can drag a new image into the field or paste a path/URL.
+  - type: input
+    id: project_id
+    attributes:
+      label: Project ID
+      placeholder: onbreekbaar
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Keep current
+        - Draft
+        - Hidden
+        - Published
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Keep current
+        - Documentary
+        - Short film
+        - Series
+  - type: input
+    id: year
+    attributes:
+      label: Year
+  - type: input
+    id: duration
+    attributes:
+      label: Duration
+      placeholder: 12m
+  - type: input
+    id: genre
+    attributes:
+      label: Genre
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma separated. Supplying this replaces the existing tag list.
+  - type: input
+    id: series
+    attributes:
+      label: Series
+  - type: input
+    id: episode
+    attributes:
+      label: Episode
+  - type: input
+    id: youtube
+    attributes:
+      label: YouTube video
+      description: Paste a URL or video ID.
+  - type: input
+    id: trailer
+    attributes:
+      label: Trailer URL
+  - type: textarea
+    id: thumbnail
+    attributes:
+      label: Thumbnail
+      description: Drag a replacement image here, or paste a path/URL.
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Drag a replacement image here, or paste a path/URL.
+  - type: textarea
+    id: logo
+    attributes:
+      label: Logo
+      description: Drag a replacement image here, or paste a path/URL.
+  - type: dropdown
+    id: featured
+    attributes:
+      label: Featured
+      options:
+        - Keep current
+        - "No"
+        - "Yes"
