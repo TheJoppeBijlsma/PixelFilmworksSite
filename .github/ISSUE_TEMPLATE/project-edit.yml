@@ -1,7 +1,6 @@
 name: Edit Pixel Filmworks project
 description: Change one or more fields of an existing project.
 title: "[Project Admin] Edit: "
-labels: ["pfw-admin", "pfw-edit"]
 body:
   - type: markdown
     attributes:
