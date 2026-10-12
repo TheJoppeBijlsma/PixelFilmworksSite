@@ -1,0 +1,25 @@
+name: Delete Pixel Filmworks project
+description: Remove a project from the managed catalog.
+title: "[Project Admin] Delete: "
+labels: ["pfw-admin", "pfw-delete"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This removes the project from the managed catalog and therefore from the public website after deployment.
+        Existing uploaded files are not automatically deleted, to avoid accidental media loss. Git history also retains previous versions.
+  - type: input
+    id: project_id
+    attributes:
+      label: Project ID
+      placeholder: my-new-film
+    validations:
+      required: true
+  - type: input
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Type `DELETE project-id` exactly, using the same Project ID as above.
+      placeholder: DELETE my-new-film
+    validations:
+      required: true
