@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Watch | Pixel Filmworks</title>
+  <link rel="stylesheet" href="../css-styles/watch.css">
+</head>
+<body>
+  <main class="watch-shell">
+    <div id="player" class="video-stage" aria-label="Video player"></div>
+    <div class="watch-gradient"></div>
+
+    <header class="watch-topbar">
+      <a id="back-link" class="back-link" href="/projects/" aria-label="Back to project">
+        <span aria-hidden="true">‹</span><strong id="back-title">Projects</strong>
+      </a>
+      <img src="../Assets/Small_Logo.png" class="watch-logo" alt="Pixel Filmworks">
+    </header>
+
+    <section id="controls" class="player-controls" aria-label="Playback controls">
+      <div class="timeline-wrap">
+        <input id="timeline" class="timeline" type="range" min="0" max="1000" value="0" aria-label="Seek video">
+      </div>
+      <div class="controls-row">
+        <div class="controls-left">
+          <button id="play-pause" class="control-button primary-control" aria-label="Play">▶</button>
+          <button id="rewind" class="control-button" aria-label="Rewind 10 seconds">↶ 10</button>
+          <button id="forward" class="control-button" aria-label="Forward 10 seconds">10 ↷</button>
+          <button id="mute" class="control-button" aria-label="Mute">🔊</button>
+          <input id="volume" class="volume" type="range" min="0" max="100" value="100" aria-label="Volume">
+          <span id="time" class="time-label">0:00 / 0:00</span>
+        </div>
+        <div class="controls-right">
+          <button id="restart" class="control-button" aria-label="Restart video">↺ Restart</button>
+          <button id="fullscreen" class="control-button" aria-label="Fullscreen">⛶</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="loading" class="loading-state">Loading film…</div>
+    <div id="error" class="error-state" hidden>
+      <h1>We couldn't load this film.</h1>
+      <a href="/projects/">Back to projects</a>
+    </div>
+  </main>
+
+  <script src="../data/projects.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="../scripts/player.js"></script>
+</body>
+</html>
