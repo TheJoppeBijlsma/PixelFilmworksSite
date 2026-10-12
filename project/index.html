@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#060714">
+<title>Project | Pixel Filmworks</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link rel="stylesheet" href="../css-styles/navigation.css">
+<link rel="stylesheet" href="../css-styles/Film Projects Page.css">
+<link rel="stylesheet" href="../css-styles/Movie boxes.css">
+<link rel="stylesheet" href="../slick/slick.css">
+<link rel="stylesheet" href="../slick/slick-theme.css">
+<style>
+  body{min-height:100vh;background:#060714;color:#fff}.dynamic-hero{min-height:78vh;padding:130px clamp(24px,5vw,76px) 80px;position:relative;display:flex;align-items:flex-end;overflow:hidden}.dynamic-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.dynamic-overlay{position:absolute;inset:0;background:linear-gradient(90deg,#060714 0%,rgba(6,7,20,.9) 28%,rgba(6,7,20,.25) 72%),linear-gradient(0deg,#060714 0%,transparent 45%)}.dynamic-content{position:relative;z-index:2;max-width:760px}.dynamic-logo{max-width:min(420px,70vw);max-height:180px;object-fit:contain;object-position:left bottom;margin-bottom:22px}.dynamic-title{font:800 clamp(42px,7vw,88px)/.95 Inter,sans-serif;letter-spacing:-.045em;margin:0 0 18px}.dynamic-meta{color:#c8cede;font:600 14px/1.5 Inter,sans-serif;margin-bottom:20px}.dynamic-description{font:400 clamp(17px,2vw,22px)/1.6 Inter,sans-serif;color:#eef0f7}.dynamic-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.dynamic-actions a{min-height:54px;padding:0 22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font:800 14px Inter,sans-serif;letter-spacing:.08em}.dynamic-play{background:#fff;color:#080a12}.dynamic-secondary{border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.25);color:#fff}.recommendations{padding:10px clamp(24px,5vw,76px) 90px}.recommendations h2{font:600 18px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase}.recommendations .slider-services{margin-top:24px}.missing-project{padding:180px 30px;text-align:center;font-family:Inter,sans-serif}.missing-project a{color:white}
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="/"><img id="nav-logo" src="../Assets/Small_Logo.png" height="70" style="margin:10px 0 0 10px" alt="Pixel Filmworks"></a>
+  <div class="navbar-right">
+    <a class="nav-button" href="/"><span class="nav-icon-font nav-icon-position">home</span><p class="nav-link-hover">Home</p></a>
+    <a class="nav-button active" href="/projects/"><span class="nav-icon-font nav-icon-position">movie</span><p class="nav-link-hover">Projects</p></a>
+    <a class="nav-button" href="/socials/"><span class="nav-icon-font nav-icon-position">group</span><p class="nav-link-hover">Socials</p></a>
+  </div>
+</div>
+<main id="project-root"></main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="../slick/slick.min.js"></script>
+<script src="../data/projects.js"></script>
+<script>
+(() => {
+  const id = new URLSearchParams(location.search).get('id');
+  const projects = window.PFW_PROJECTS || [];
+  const project = projects.find(p => p.id === id);
+  const root = document.getElementById('project-root');
+  if (!project) { root.innerHTML='<section class="missing-project"><h1>Project not found</h1><p><a href="/projects/">Back to projects</a></p></section>'; return; }
+  document.title = `${project.title} | Pixel Filmworks`;
+  const progressKey = `pfw:watch:${project.id}`;
+  let progress=null; try{progress=JSON.parse(localStorage.getItem(progressKey))}catch(_){ }
+  const resumable=progress&&progress.currentTime>10&&progress.duration>0&&progress.currentTime<progress.duration-15;
+  const remaining=resumable?Math.max(1,Math.ceil((progress.duration-progress.currentTime)/60)):null;
+  const backdrop=project.background||project.banner||project.thumbnail;
+  const logo=project.logo?`<img class="dynamic-logo" src="${project.logo}" alt="${project.title}">`:`<h1 class="dynamic-title">${project.title}</h1>`;
+  const meta=[project.year,project.durationLabel,project.genre||project.type].filter(Boolean).join(' • ');
+  root.innerHTML=`
+    <section class="dynamic-hero">
+      <img class="dynamic-backdrop" src="${backdrop}" alt="">
+      <div class="dynamic-overlay"></div>
+      <div class="dynamic-content">
+        ${logo}
+        <div class="dynamic-meta">${meta}</div>
+        ${project.description?`<p class="dynamic-description">${project.description}</p>`:''}
+        <div class="dynamic-actions">
+          <a class="dynamic-play" href="/watch/?id=${encodeURIComponent(project.id)}&mode=${resumable?'continue':'restart'}">${resumable?`CONTINUE · ${remaining}m left`:'PLAY'}</a>
+          ${resumable?`<a class="dynamic-secondary" href="/watch/?id=${encodeURIComponent(project.id)}&mode=restart">RESTART</a>`:''}
+          ${project.trailerUrl?`<a class="dynamic-secondary" href="${project.trailerUrl}">TRAILER</a>`:''}
+        </div>
+      </div>
+    </section>
+    <section class="recommendations"><h2>More to watch</h2><div class="slider-services"></div></section>`;
+  const score=c=>((c.series&&project.series&&c.series===project.series)?8:0)+(c.type===project.type?4:0)+(c.tags||[]).filter(t=>(project.tags||[]).includes(t)).length*3;
+  const picks=projects.filter(p=>p.id!==project.id).sort((a,b)=>score(b)-score(a)).slice(0,6);
+  const row=root.querySelector('.slider-services');
+  picks.forEach(p=>{const d=document.createElement('div');d.innerHTML=`<a href="${p.detailUrl}"><img class="movie-box" src="${p.thumbnail}" alt="${p.title}" loading="lazy"></a>`;row.appendChild(d)});
+  if(window.jQuery&&jQuery.fn.slick) jQuery(row).slick({dots:false,arrows:true,infinite:false,slidesToShow:5,slidesToScroll:1,responsive:[{breakpoint:1100,settings:{slidesToShow:4}},{breakpoint:850,settings:{slidesToShow:3}},{breakpoint:620,settings:{slidesToShow:2}}]});
+})();
+</script>
+<script src="../Scripts/Header-Color-Change.js"></script>
+</body>
+</html>
