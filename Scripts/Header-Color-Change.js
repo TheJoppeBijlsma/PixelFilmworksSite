@@ -13,9 +13,6 @@
   document.addEventListener('DOMContentLoaded', updateHeader);
   window.addEventListener('scroll', updateHeader, { passive: true });
 
-  const isProjectDetail = /^\/projects\/(films|series)\/.+/.test(window.location.pathname);
-  if (!isProjectDetail) return;
-
   const loadScript = (src) => new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = src;
@@ -24,15 +21,22 @@
     document.head.appendChild(script);
   });
 
-  const style = document.createElement('style');
-  style.textContent = `
-    .watch-remaining{display:block;font-size:10px;line-height:1;letter-spacing:.3px;margin-left:8px;opacity:.72;text-transform:none}
-    .restart-button{min-width:134px;width:auto;padding:0 18px}
-    @media(max-width:520px){.play-and-trailer-container{gap:6px}.film-button-play,.film-button-trailer{margin-right:4px}.watch-remaining{display:none}}
-  `;
-  document.head.appendChild(style);
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isProjectsIndex = path === '/projects';
+  const isProjectDetail = /^\/projects\/(films|series)\/.+/.test(path);
+  if (!isProjectsIndex && !isProjectDetail) return;
+
+  if (isProjectDetail) {
+    const style = document.createElement('style');
+    style.textContent = `
+      .watch-remaining{display:block;font-size:10px;line-height:1;letter-spacing:.3px;margin-left:8px;opacity:.72;text-transform:none}
+      .restart-button{min-width:134px;width:auto;padding:0 18px}
+      @media(max-width:520px){.play-and-trailer-container{gap:6px}.film-button-play,.film-button-trailer{margin-right:4px}.watch-remaining{display:none}}
+    `;
+    document.head.appendChild(style);
+  }
 
   loadScript('/data/projects.js')
-    .then(() => loadScript('/scripts/project-experience.js'))
+    .then(() => loadScript(isProjectsIndex ? '/scripts/projects-page.js' : '/scripts/project-experience.js'))
     .catch(() => {});
 })();
