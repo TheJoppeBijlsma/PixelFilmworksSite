@@ -12,7 +12,7 @@ jobs:
   manage-project:
     if: >-
       github.event.issue.author_association == 'OWNER' &&
-      contains(join(github.event.issue.labels.*.name, ','), 'pfw-admin')
+      startsWith(github.event.issue.title, '[Project Admin]')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -23,7 +23,7 @@ jobs:
       - name: Apply project change
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
-          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: node .github/scripts/project-admin.mjs
 
       - name: Commit project catalog
@@ -52,5 +52,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              state: 'closed'
+              state: 'closed',
+              state_reason: 'completed'
             });
