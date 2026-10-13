@@ -23,12 +23,12 @@
 
   const playSvg = `
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M8 5v14l11-7z" fill="currentColor"/>
+      <path d="M9 6.6v10.8L17.4 12 9 6.6Z" fill="currentColor"/>
     </svg>`;
 
   const card = (item, progress, { continueCard = false } = {}) => {
     const outer = document.createElement('div');
-    outer.className = continueCard ? 'pfw-continue-card' : 'col-xs-12 col-sm-6 col-md-4 pfw-catalog-card';
+    outer.className = continueCard ? 'pfw-continue-card' : 'pfw-catalog-card';
     outer.dataset.projectId = item.id;
 
     const link = document.createElement('a');
@@ -46,30 +46,33 @@
     image.loading = 'lazy';
     visual.appendChild(image);
 
-    const shade = document.createElement('span');
-    shade.className = 'pfw-card-shade';
-    visual.appendChild(shade);
-
-    const play = document.createElement('span');
-    play.className = 'pfw-card-play';
-    play.innerHTML = playSvg;
-    play.setAttribute('aria-hidden', 'true');
-    visual.appendChild(play);
-
-    link.appendChild(visual);
-
-    if (progress && Number(progress.duration) > 0) {
+    if (continueCard && progress && Number(progress.duration) > 0) {
       const pct = Math.max(0, Math.min(100, (Number(progress.currentTime) / Number(progress.duration)) * 100));
       const remaining = Math.max(0, Number(progress.duration) - Number(progress.currentTime));
       const mins = Math.max(1, Math.ceil(remaining / 60));
 
-      const progressWrap = document.createElement('span');
-      progressWrap.className = 'pfw-continue-progress';
-      progressWrap.innerHTML = `
-        <span class="pfw-progress-track"><span class="pfw-progress-fill" style="width:${pct}%"></span></span>
-        <span class="pfw-progress-copy">${mins} min left</span>
-      `;
-      link.appendChild(progressWrap);
+      const shade = document.createElement('span');
+      shade.className = 'pfw-card-shade';
+      visual.appendChild(shade);
+
+      const play = document.createElement('span');
+      play.className = 'pfw-card-play';
+      play.innerHTML = playSvg;
+      play.setAttribute('aria-hidden', 'true');
+      visual.appendChild(play);
+
+      const bar = document.createElement('span');
+      bar.className = 'pfw-progress-track pfw-progress-track-overlay';
+      bar.innerHTML = `<span class="pfw-progress-fill" style="width:${pct}%"></span>`;
+      visual.appendChild(bar);
+
+      const progressCopy = document.createElement('span');
+      progressCopy.className = 'pfw-progress-copy';
+      progressCopy.textContent = `${mins} min left`;
+      link.appendChild(visual);
+      link.appendChild(progressCopy);
+    } else {
+      link.appendChild(visual);
     }
 
     outer.appendChild(link);
@@ -125,6 +128,8 @@
 
     destroySlider(row);
     row.innerHTML = '';
+    row.classList.remove('pfw-static-row');
+    row.closest('.container-fluid')?.classList.add('pfw-dynamic-row-shell');
 
     if (!items.length) {
       heading.closest('.container')?.setAttribute('hidden', '');
@@ -141,7 +146,12 @@
     });
 
     sorted.forEach(item => row.appendChild(card(item)));
-    initSlider(row);
+
+    if (sorted.length <= 5) {
+      row.classList.add('pfw-static-row');
+    } else {
+      initSlider(row);
+    }
   };
 
   populate('Recently Added', projects);
@@ -182,35 +192,39 @@
   const style = document.createElement('style');
   style.id = 'pfw-projects-runtime-style';
   style.textContent = `
+    .pfw-dynamic-row-shell{overflow:visible!important;max-height:none!important;padding-bottom:32px}
     .pfw-project-card{display:block;position:relative;text-decoration:none;color:inherit;z-index:1;overflow:visible}
     .pfw-card-visual{display:block;position:relative;border-radius:8px;overflow:visible;transition:transform .24s cubic-bezier(.2,.7,.2,1),filter .24s ease;transform-origin:center center}
-    .pfw-card-visual .movie-box{display:block;width:100%;height:auto;margin-top:15px;border-radius:8px;outline:0 solid #fff;outline-offset:0;transition:transform .24s cubic-bezier(.2,.7,.2,1),outline-width .16s ease,box-shadow .24s ease;position:relative;z-index:1}
-    .pfw-card-shade{position:absolute;inset:15px 0 0;border-radius:8px;background:rgba(4,6,14,0);transition:background .2s ease;z-index:2;pointer-events:none}
-    .pfw-card-play{position:absolute;left:50%;top:calc(50% + 7px);width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#070914;box-shadow:0 8px 24px rgba(0,0,0,.34);opacity:0;transform:scale(.78);transition:opacity .18s ease,transform .22s cubic-bezier(.2,.7,.2,1);z-index:4;pointer-events:none}
-    .pfw-card-play svg{width:27px;height:27px;margin-left:3px}
+    .pfw-card-visual .movie-box{display:block;width:100%;height:auto;margin:15px 0 0;border-radius:8px;outline:0 solid #fff;outline-offset:0;transition:transform .24s cubic-bezier(.2,.7,.2,1),outline-width .16s ease,box-shadow .24s ease;position:relative;z-index:1}
     .pfw-project-card:hover{z-index:8}
-    .pfw-project-card:hover .pfw-card-visual{transform:scale(1.075);filter:brightness(1.02)}
-    .pfw-project-card:hover .movie-box{outline:4px solid #fff;box-shadow:0 20px 42px rgba(0,0,0,.48)}
-    .pfw-project-card:hover .pfw-card-shade{background:rgba(5,7,15,.18)}
-    .pfw-project-card:hover .pfw-card-play{opacity:1;transform:scale(1)}
+    .pfw-project-card:hover .pfw-card-visual{transform:scale(1.065)}
+    .pfw-project-card:hover .movie-box{outline:4px solid #fff;box-shadow:0 22px 44px rgba(0,0,0,.5)}
 
-    .pfw-continue-section{margin-top:36px;margin-bottom:28px;padding-left:15px;padding-right:15px;overflow:visible}
+    .pfw-static-row{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:30px;align-items:start;width:100%;overflow:visible!important}
+    .pfw-static-row:before,.pfw-static-row:after{display:none!important}
+    .pfw-static-row .pfw-catalog-card{min-width:0;width:auto!important;float:none!important;margin:0!important}
+
+    .pfw-continue-section{margin-top:36px;margin-bottom:32px;padding-left:15px;padding-right:15px;overflow:visible}
     .pfw-continue-heading-row{margin-bottom:14px}
     .pfw-continue-heading-row .movie-category{margin:0}
     .pfw-continue-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:30px;overflow:visible}
     .pfw-continue-card{min-width:0;position:relative;overflow:visible;transition:opacity .18s ease,transform .18s ease}
     .pfw-continue-card.pfw-removing{opacity:0;transform:scale(.94)}
     .pfw-continue-card .movie-box{margin:0}
-    .pfw-continue-card .pfw-card-shade{inset:0}
-    .pfw-continue-card .pfw-card-play{top:50%}
-    .pfw-continue-remove{position:absolute;right:-10px;top:-10px;width:38px;height:38px;border-radius:50%;border:3px solid #fff;background:rgba(8,10,18,.82);color:#fff;display:grid;place-items:center;font:700 26px/1 Inter,sans-serif;opacity:0;transform:scale(.78);transition:opacity .18s ease,transform .2s ease,background .18s ease;z-index:12;cursor:pointer;backdrop-filter:blur(10px)}
+    .pfw-card-shade{position:absolute;inset:0;border-radius:8px;background:rgba(4,6,14,0);transition:background .2s ease;z-index:2;pointer-events:none}
+    .pfw-card-play{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.96);color:#060714;box-shadow:0 8px 24px rgba(0,0,0,.3);opacity:0;transform:scale(.84);transition:opacity .18s ease,transform .22s cubic-bezier(.2,.7,.2,1);z-index:4;pointer-events:none}
+    .pfw-card-play:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(255,255,255,.35)}
+    .pfw-card-play svg{width:22px;height:22px;margin-left:2px}
+    .pfw-continue-card:hover .pfw-card-shade{background:rgba(5,7,15,.16)}
+    .pfw-continue-card:hover .pfw-card-play{opacity:1;transform:scale(1)}
+    .pfw-continue-remove{position:absolute;right:-7px;top:-7px;width:30px;height:30px;border-radius:50%;border:2px solid #fff;background:rgba(8,10,18,.88);color:#fff;display:grid;place-items:center;font:600 20px/1 Inter,sans-serif;opacity:0;transform:scale(.82);transition:opacity .18s ease,transform .2s ease,background .18s ease;z-index:12;cursor:pointer;backdrop-filter:blur(10px)}
     .pfw-continue-remove span{transform:translateY(-1px)}
     .pfw-continue-card:hover .pfw-continue-remove,.pfw-continue-card:focus-within .pfw-continue-remove{opacity:1;transform:scale(1)}
     .pfw-continue-remove:hover{background:#fff;color:#080a12}
-    .pfw-continue-progress{display:block;padding:8px 2px 0;color:#c8cbd6;font-size:12px;line-height:1.2}
-    .pfw-progress-track{display:block;width:100%;height:4px;border-radius:99px;background:rgba(255,255,255,.24);overflow:hidden}
+    .pfw-progress-track{display:block;width:100%;height:4px;border-radius:0 0 8px 8px;background:rgba(255,255,255,.28);overflow:hidden}
+    .pfw-progress-track-overlay{position:absolute;left:0;right:0;bottom:0;z-index:5}
     .pfw-progress-fill{display:block;height:100%;background:#fff;border-radius:inherit}
-    .pfw-progress-copy{display:block;margin-top:6px;opacity:.82}
+    .pfw-progress-copy{display:block;margin-top:8px;color:#c8cbd6;font-size:12px;line-height:1.2;opacity:.84}
 
     @media(hover:none){
       .pfw-card-play{display:none}
@@ -218,9 +232,9 @@
       .pfw-project-card:hover .pfw-card-visual{transform:none}
       .pfw-project-card:hover .movie-box{outline-width:0}
     }
-    @media(max-width:1150px){.pfw-continue-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}}
-    @media(max-width:900px){.pfw-continue-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}
-    @media(max-width:740px){.pfw-continue-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.pfw-continue-section{margin-top:26px;margin-bottom:22px}.pfw-card-play{width:50px;height:50px;margin:-25px 0 0 -25px}}
+    @media(max-width:1150px){.pfw-static-row,.pfw-continue-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}}
+    @media(max-width:900px){.pfw-static-row,.pfw-continue-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}
+    @media(max-width:740px){.pfw-static-row,.pfw-continue-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.pfw-continue-section{margin-top:26px;margin-bottom:22px}.pfw-card-play{width:40px;height:40px;margin:-20px 0 0 -20px}}
   `;
   document.head.appendChild(style);
 })();
