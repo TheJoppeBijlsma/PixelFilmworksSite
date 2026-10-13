@@ -187,5 +187,33 @@
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-6.png",
     "youtubeId": "gV2_9lNTOEs",
     "publishedOrder": 6
+  },
+  {
+    "id": "dat-zal-lekker-smaken",
+    "title": "Dat Zal Lekker Smaken",
+    "status": "published",
+    "type": "shortfilm",
+    "year": 2026,
+    "durationLabel": "8m",
+    "genre": "Horror",
+    "description": "After waking up in the woods with no memory of who he is, a young man named Jorg is taken in by a group of strange yet unusually kind people, led by a man wearing a priest’s collar. What seems like a safe haven soon begins to reveal a much darker undertone.",
+    "tags": [
+      "live-action",
+      "horror"
+    ],
+    "kijkwijzerAge": "16",
+    "kijkwijzerReasons": [
+      "Violence",
+      "Fear"
+    ],
+    "captions": true,
+    "pictureQuality": "4K UHD",
+    "detailUrl": "/project/?id=dat-zal-lekker-smaken",
+    "thumbnail": "https://github.com/user-attachments/assets/ff144fd2-1c62-492d-91f1-7d76f320bd52\"",
+    "background": "https://github.com/user-attachments/assets/aca0ef66-fe42-4972-8f13-c45d71471ac7\"",
+    "logo": "https://github.com/user-attachments/assets/c0189fdf-58df-478d-bfc2-3b51d3b5e000\"",
+    "youtubeId": "qLhXpnu2xxA",
+    "featured": true,
+    "publishedOrder": 11
   }
 ]
