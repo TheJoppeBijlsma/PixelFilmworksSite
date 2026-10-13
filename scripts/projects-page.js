@@ -143,12 +143,15 @@
   const style = document.createElement('style');
   style.id = 'pfw-projects-runtime-style';
   style.textContent = `
-    .pfw-project-card{display:block;position:relative;border-radius:6px;overflow:hidden;text-decoration:none}
+    .pfw-project-card{display:block;position:relative;border-radius:6px;overflow:visible;text-decoration:none;z-index:1}
+    .pfw-project-card:hover{z-index:6}
+    .pfw-project-card .movie-box{position:relative;z-index:1;transition:all 200ms ease,transform 300ms ease;outline:0 solid #fff;outline-offset:3px}
+    .pfw-project-card:hover .movie-box{transform:scale(1.05);outline:3px solid #fff;z-index:6}
     .pfw-continue-section{margin-top:36px;margin-bottom:28px;padding-left:15px;padding-right:15px}
     .pfw-continue-heading-row{margin-bottom:14px}
     .pfw-continue-heading-row .movie-category{margin:0}
     .pfw-continue-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:30px}
-    .pfw-continue-card{min-width:0}
+    .pfw-continue-card{min-width:0;position:relative;overflow:visible}
     .pfw-continue-card .movie-box{width:100%;height:auto;margin:0;display:block}
     .pfw-continue-progress{display:block;padding:8px 2px 0;color:#c8cbd6;font-size:12px;line-height:1.2}
     .pfw-progress-track{display:block;width:100%;height:4px;border-radius:99px;background:rgba(255,255,255,.24);overflow:hidden}
