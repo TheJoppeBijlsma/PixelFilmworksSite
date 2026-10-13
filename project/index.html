@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../slick/slick.css">
 <link rel="stylesheet" href="../slick/slick-theme.css">
 <style>
-  body{min-height:100vh;background:#060714;color:#fff}.dynamic-hero{min-height:78vh;padding:130px clamp(24px,5vw,76px) 80px;position:relative;display:flex;align-items:flex-end;overflow:hidden}.dynamic-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.dynamic-overlay{position:absolute;inset:0;background:linear-gradient(90deg,#060714 0%,rgba(6,7,20,.9) 28%,rgba(6,7,20,.25) 72%),linear-gradient(0deg,#060714 0%,transparent 45%)}.dynamic-content{position:relative;z-index:2;max-width:760px}.dynamic-logo{max-width:min(420px,70vw);max-height:180px;object-fit:contain;object-position:left bottom;margin-bottom:22px}.dynamic-title{font:800 clamp(42px,7vw,88px)/.95 Inter,sans-serif;letter-spacing:-.045em;margin:0 0 18px}.dynamic-meta{color:#c8cede;font:600 14px/1.5 Inter,sans-serif;margin-bottom:20px}.dynamic-description{font:400 clamp(17px,2vw,22px)/1.6 Inter,sans-serif;color:#eef0f7}.dynamic-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.dynamic-actions a{min-height:54px;padding:0 22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font:800 14px Inter,sans-serif;letter-spacing:.08em}.dynamic-play{background:#fff;color:#080a12}.dynamic-secondary{border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.25);color:#fff}.recommendations{padding:10px clamp(24px,5vw,76px) 90px}.recommendations h2{font:600 18px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase}.recommendations .slider-services{margin-top:24px}.missing-project{padding:180px 30px;text-align:center;font-family:Inter,sans-serif}.missing-project a{color:white}
+  body{min-height:100vh;background:#060714;color:#fff}.dynamic-hero{min-height:78vh;padding:130px clamp(24px,5vw,76px) 80px;position:relative;display:flex;align-items:flex-end;overflow:hidden}.dynamic-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.dynamic-overlay{position:absolute;inset:0;background:linear-gradient(90deg,#060714 0%,rgba(6,7,20,.9) 28%,rgba(6,7,20,.25) 72%),linear-gradient(0deg,#060714 0%,transparent 45%)}.dynamic-content{position:relative;z-index:2;max-width:760px}.dynamic-logo{max-width:min(420px,70vw);max-height:180px;object-fit:contain;object-position:left bottom;margin-bottom:22px}.dynamic-title{font:800 clamp(42px,7vw,88px)/.95 Inter,sans-serif;letter-spacing:-.045em;margin:0 0 18px}.dynamic-meta{color:#c8cede;font:600 14px/1.5 Inter,sans-serif;margin-bottom:12px}.dynamic-badges{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 18px}.dynamic-badge{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.14);font:700 11px/1 Inter,sans-serif;letter-spacing:.04em;color:#fff;backdrop-filter:blur(8px)}.dynamic-badge.age{border-radius:999px;min-width:28px;padding-inline:7px}.dynamic-reasons{font:500 12px/1.4 Inter,sans-serif;color:#cbd0dc;margin-left:2px}.dynamic-description{font:400 clamp(17px,2vw,22px)/1.6 Inter,sans-serif;color:#eef0f7}.dynamic-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.dynamic-actions a{min-height:54px;padding:0 22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font:800 14px Inter,sans-serif;letter-spacing:.08em}.dynamic-play{background:#fff;color:#080a12}.dynamic-secondary{border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.25);color:#fff}.recommendations{padding:10px clamp(24px,5vw,76px) 90px}.recommendations h2{font:600 18px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase}.recommendations .slider-services{margin-top:24px}.missing-project{padding:180px 30px;text-align:center;font-family:Inter,sans-serif}.missing-project a{color:white}
 </style>
 </head>
 <body>
@@ -28,7 +28,7 @@
 <main id="project-root"></main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="../slick/slick.min.js"></script>
-<script src="../data/projects.js"></script>
+<script src="../data/projects.js?v=20261013-6"></script>
 <script>
 (() => {
   const id = new URLSearchParams(location.search).get('id');
@@ -44,6 +44,12 @@
   const backdrop=project.background||project.banner||project.thumbnail;
   const logo=project.logo?`<img class="dynamic-logo" src="${project.logo}" alt="${project.title}">`:`<h1 class="dynamic-title">${project.title}</h1>`;
   const meta=[project.year,project.durationLabel,project.genre||project.type].filter(Boolean).join(' • ');
+  const reasons=(project.kijkwijzerReasons||[]).join(' · ');
+  const badges=[
+    project.kijkwijzerAge?`<span class="dynamic-badge age">${project.kijkwijzerAge}</span>`:'',
+    project.pictureQuality?`<span class="dynamic-badge">${project.pictureQuality}</span>`:'',
+    project.captions?'<span class="dynamic-badge">CC</span>':''
+  ].join('');
   root.innerHTML=`
     <section class="dynamic-hero">
       <img class="dynamic-backdrop" src="${backdrop}" alt="">
@@ -51,10 +57,11 @@
       <div class="dynamic-content">
         ${logo}
         <div class="dynamic-meta">${meta}</div>
+        ${(badges||reasons)?`<div class="dynamic-badges">${badges}${reasons?`<span class="dynamic-reasons">${reasons}</span>`:''}</div>`:''}
         ${project.description?`<p class="dynamic-description">${project.description}</p>`:''}
         <div class="dynamic-actions">
           <a class="dynamic-play" href="/watch/?id=${encodeURIComponent(project.id)}&mode=${resumable?'continue':'restart'}">${resumable?`CONTINUE · ${remaining}m left`:'PLAY'}</a>
-          ${resumable?`<a class="dynamic-secondary" href="/watch/?id=${encodeURIComponent(project.id)}&mode=restart">RESTART</a>`:''}
+          ${resumable?`<a class="dynamic-secondary" href="/watch/?id=${encodeURIComponent(project.id)}&mode=restart">START OVER</a>`:''}
           ${project.trailerUrl?`<a class="dynamic-secondary" href="${project.trailerUrl}">TRAILER</a>`:''}
         </div>
       </div>
@@ -67,6 +74,6 @@
   if(window.jQuery&&jQuery.fn.slick) jQuery(row).slick({dots:false,arrows:true,infinite:false,slidesToShow:5,slidesToScroll:1,responsive:[{breakpoint:1100,settings:{slidesToShow:4}},{breakpoint:850,settings:{slidesToShow:3}},{breakpoint:620,settings:{slidesToShow:2}}]});
 })();
 </script>
-<script src="../Scripts/Header-Color-Change.js"></script>
+<script src="../Scripts/Header-Color-Change.js?v=20261013-6"></script>
 </body>
 </html>
