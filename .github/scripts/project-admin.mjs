@@ -81,6 +81,18 @@ const numberValue = (value, fallback) => {
   return Number.isFinite(n) ? n : fallback;
 };
 
+const listValue = (value) => value
+  ? value.split(',').map(v => v.trim()).filter(Boolean)
+  : [];
+
+const checkedValues = (value) => value
+  ? value.split('\n')
+      .map(line => line.match(/^- \[[xX]\]\s*(.+)$/)?.[1]?.trim())
+      .filter(Boolean)
+  : [];
+
+const keepCurrent = (value) => !value || value.toLowerCase().includes('keep current');
+
 let projects = readCatalog();
 let operation = '';
 if (title.startsWith('[Project Admin] Create:')) operation = 'create';
@@ -110,7 +122,11 @@ if (operation === 'create') {
     durationLabel: field('Duration') || undefined,
     genre: field('Genre') || undefined,
     description: field('Description') || undefined,
-    tags: field('Tags') ? field('Tags').split(',').map(tag => tag.trim()).filter(Boolean) : [],
+    tags: listValue(field('Tags')),
+    kijkwijzerAge: field('Kijkwijzer age') || undefined,
+    kijkwijzerReasons: checkedValues(field('Kijkwijzer reasons')),
+    captions: boolValue(field('Captions / CC'), false),
+    pictureQuality: field('Picture quality') || undefined,
     series: field('Series') || undefined,
     episode: numberValue(field('Episode'), undefined),
     detailUrl: `/project/?id=${encodeURIComponent(id)}`,
@@ -131,6 +147,7 @@ if (operation === 'edit') {
   if (index < 0) throw new Error(`Project ${id} does not exist.`);
   const current = projects[index];
   const setIf = (key, value) => { if (value !== '' && value !== undefined) current[key] = value; };
+
   setIf('title', field('Title'));
   setIf('status', normalizeStatus(field('Status')));
   setIf('type', normalizeType(field('Type')));
@@ -138,7 +155,11 @@ if (operation === 'edit') {
   setIf('durationLabel', field('Duration'));
   setIf('genre', field('Genre'));
   setIf('description', field('Description'));
-  if (field('Tags')) current.tags = field('Tags').split(',').map(tag => tag.trim()).filter(Boolean);
+  if (field('Tags')) current.tags = listValue(field('Tags'));
+  if (!keepCurrent(field('Kijkwijzer age'))) current.kijkwijzerAge = field('Kijkwijzer age');
+  if (field('Kijkwijzer reasons')) current.kijkwijzerReasons = listValue(field('Kijkwijzer reasons'));
+  if (!keepCurrent(field('Captions / CC'))) current.captions = boolValue(field('Captions / CC'), Boolean(current.captions));
+  if (!keepCurrent(field('Picture quality'))) current.pictureQuality = field('Picture quality');
   setIf('series', field('Series'));
   setIf('episode', numberValue(field('Episode'), undefined));
   setIf('thumbnail', firstAssetValue(field('Thumbnail')));
