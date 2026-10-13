@@ -22,20 +22,12 @@ body:
     id: status
     attributes:
       label: Status
-      options:
-        - Keep current
-        - Draft
-        - Hidden
-        - Published
+      options: [Keep current, Draft, Hidden, Published]
   - type: dropdown
     id: type
     attributes:
       label: Type
-      options:
-        - Keep current
-        - Documentary
-        - Short film
-        - Series
+      options: [Keep current, Documentary, Short film, Series]
   - type: input
     id: year
     attributes:
@@ -58,6 +50,26 @@ body:
     attributes:
       label: Tags
       description: Comma separated. Supplying this replaces the existing tag list.
+  - type: dropdown
+    id: kijkwijzer_age
+    attributes:
+      label: Kijkwijzer age
+      options: [Keep current, AL, "6", "9", "12", "14", "16", "18"]
+  - type: input
+    id: kijkwijzer_reasons
+    attributes:
+      label: Kijkwijzer reasons
+      description: Comma separated. Leave empty to keep current. Example: Violence, Fear, Coarse language
+  - type: dropdown
+    id: captions
+    attributes:
+      label: Captions / CC
+      options: [Keep current, "Yes", "No"]
+  - type: dropdown
+    id: quality
+    attributes:
+      label: Picture quality
+      options: [Keep current, HD, Full HD, 4K UHD, 4K HDR]
   - type: input
     id: series
     attributes:
@@ -94,7 +106,4 @@ body:
     id: featured
     attributes:
       label: Featured
-      options:
-        - Keep current
-        - "No"
-        - "Yes"
+      options: [Keep current, "No", "Yes"]
