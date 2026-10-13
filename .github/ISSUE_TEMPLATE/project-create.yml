@@ -27,29 +27,20 @@ body:
     id: status
     attributes:
       label: Status
-      options:
-        - Draft
-        - Hidden
-        - Published
-    validations:
-      required: true
+      options: [Draft, Hidden, Published]
+    validations: { required: true }
   - type: dropdown
     id: type
     attributes:
       label: Type
-      options:
-        - Documentary
-        - Short film
-        - Series
-    validations:
-      required: true
+      options: [Documentary, Short film, Series]
+    validations: { required: true }
   - type: input
     id: year
     attributes:
       label: Year
       placeholder: "2026"
-    validations:
-      required: true
+    validations: { required: true }
   - type: input
     id: duration
     attributes:
@@ -72,6 +63,35 @@ body:
       label: Tags
       description: Comma separated. Used for More to Watch.
       placeholder: live-action, documentary, human-story
+  - type: dropdown
+    id: kijkwijzer_age
+    attributes:
+      label: Kijkwijzer age
+      options: [AL, "6", "9", "12", "14", "16", "18"]
+    validations: { required: true }
+  - type: checkboxes
+    id: kijkwijzer_reasons
+    attributes:
+      label: Kijkwijzer reasons
+      options:
+        - label: Violence
+        - label: Fear
+        - label: Sex
+        - label: Discrimination
+        - label: Drugs and/or alcohol
+        - label: Coarse language
+  - type: dropdown
+    id: captions
+    attributes:
+      label: Captions / CC
+      options: ["Yes", "No"]
+    validations: { required: true }
+  - type: dropdown
+    id: quality
+    attributes:
+      label: Picture quality
+      options: [HD, Full HD, 4K UHD, 4K HDR]
+    validations: { required: true }
   - type: input
     id: series
     attributes:
@@ -99,8 +119,7 @@ body:
     attributes:
       label: Thumbnail
       description: Drag the thumbnail here, or paste an existing repository path/URL. Recommended 16:9.
-    validations:
-      required: true
+    validations: { required: true }
   - type: textarea
     id: background
     attributes:
@@ -115,8 +134,5 @@ body:
     id: featured
     attributes:
       label: Featured
-      options:
-        - "No"
-        - "Yes"
-    validations:
-      required: true
+      options: ["No", "Yes"]
+    validations: { required: true }
