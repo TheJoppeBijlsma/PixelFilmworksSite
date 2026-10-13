@@ -1,6 +1,6 @@
 // Shared Pixel Filmworks navigation + project runtime
 (() => {
-  const RUNTIME = '20261013-4';
+  const RUNTIME = '20261013-5';
 
   const updateHeader = () => {
     const header = document.querySelector('.header');
