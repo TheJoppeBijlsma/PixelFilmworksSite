@@ -5,7 +5,11 @@
     "status": "published",
     "type": "documentary",
     "year": 2024,
-    "tags": ["live-action", "documentary", "human-story"],
+    "tags": [
+      "live-action",
+      "documentary",
+      "human-story"
+    ],
     "detailUrl": "/projects/films/onbreekbaar/",
     "thumbnail": "/Assets/MovieBoxes/onbreekbaar.png",
     "background": "/Assets/FilmPageBackgrounds/onbreekbaar2.png",
@@ -17,10 +21,14 @@
   {
     "id": "the-lost-mask",
     "title": "The Lost Mask",
-    "status": "published",
+    "status": "hidden",
     "type": "shortfilm",
     "year": 2023,
-    "tags": ["live-action", "shortfilm", "story"],
+    "tags": [
+      "live-action",
+      "shortfilm",
+      "story"
+    ],
     "detailUrl": "/projects/films/the-lost-mask/",
     "thumbnail": "/Assets/MovieBoxes/lost-mask.png",
     "background": "/Assets/FilmBanners/lost-mask.png",
@@ -35,7 +43,11 @@
     "type": "series",
     "series": "minecraft-mobs",
     "year": 2024,
-    "tags": ["minecraft", "animation", "series"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series"
+    ],
     "detailUrl": "/projects/series/minecraft-mobs/witch/",
     "thumbnail": "/Assets/MovieBoxes/witch.png",
     "background": "/Assets/FilmBanners/witch.png",
@@ -50,7 +62,11 @@
     "type": "series",
     "series": "minecraft-mobs",
     "year": 2024,
-    "tags": ["minecraft", "animation", "series"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series"
+    ],
     "detailUrl": "/projects/series/minecraft-mobs/villager/",
     "thumbnail": "/Assets/MovieBoxes/villager.png",
     "background": "/Assets/FilmBanners/villager.png",
@@ -66,7 +82,12 @@
     "series": "griffincraft",
     "year": 2022,
     "episode": 1,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode1/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-1.png",
     "youtubeId": "NFvGGg8nHcg",
@@ -80,7 +101,12 @@
     "series": "griffincraft",
     "year": 2022,
     "episode": 2,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode2/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-2.png",
     "youtubeId": "15OWIUU3T2M",
@@ -94,7 +120,12 @@
     "series": "griffincraft",
     "year": 2022,
     "episode": 3,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode3/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-3.png",
     "youtubeId": "3GiIIGqfQRQ",
@@ -108,7 +139,12 @@
     "series": "griffincraft",
     "year": 2022,
     "episode": 4,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode4/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-4.png",
     "youtubeId": "Z9WuQmNgbQU",
@@ -122,7 +158,12 @@
     "series": "griffincraft",
     "year": 2022,
     "episode": 5,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode5/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-5.png",
     "youtubeId": "rr9Z_pYsQ8Y",
@@ -136,7 +177,12 @@
     "series": "griffincraft",
     "year": 2022,
     "episode": 6,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode6/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-6.png",
     "youtubeId": "gV2_9lNTOEs",

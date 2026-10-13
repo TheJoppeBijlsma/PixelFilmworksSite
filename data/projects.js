@@ -5,7 +5,11 @@ window.PFW_PROJECTS = [
     "status": "published",
     "type": "documentary",
     "year": 2024,
-    "tags": ["live-action", "documentary", "human-story"],
+    "tags": [
+      "live-action",
+      "documentary",
+      "human-story"
+    ],
     "detailUrl": "/projects/films/onbreekbaar/",
     "thumbnail": "/Assets/MovieBoxes/onbreekbaar.png",
     "background": "/Assets/FilmPageBackgrounds/onbreekbaar2.png",
@@ -21,7 +25,11 @@ window.PFW_PROJECTS = [
     "type": "series",
     "series": "minecraft-mobs",
     "year": 2024,
-    "tags": ["minecraft", "animation", "series"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series"
+    ],
     "detailUrl": "/projects/series/minecraft-mobs/witch/",
     "thumbnail": "/Assets/MovieBoxes/witch.png",
     "background": "/Assets/FilmBanners/witch.png",
@@ -36,27 +44,17 @@ window.PFW_PROJECTS = [
     "type": "series",
     "series": "minecraft-mobs",
     "year": 2024,
-    "tags": ["minecraft", "animation", "series"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series"
+    ],
     "detailUrl": "/projects/series/minecraft-mobs/villager/",
     "thumbnail": "/Assets/MovieBoxes/villager.png",
     "background": "/Assets/FilmBanners/villager.png",
     "youtubeId": "xs_ERzWhXSM",
     "featured": true,
     "publishedOrder": 8
-  },
-  {
-    "id": "the-lost-mask",
-    "title": "The Lost Mask",
-    "status": "published",
-    "type": "shortfilm",
-    "year": 2023,
-    "tags": ["live-action", "shortfilm", "story"],
-    "detailUrl": "/projects/films/the-lost-mask/",
-    "thumbnail": "/Assets/MovieBoxes/lost-mask.png",
-    "background": "/Assets/FilmBanners/lost-mask.png",
-    "youtubeId": "MiXJ_b4Qlqw",
-    "featured": true,
-    "publishedOrder": 7
   },
   {
     "id": "griffincraft-6",
@@ -66,7 +64,12 @@ window.PFW_PROJECTS = [
     "series": "griffincraft",
     "year": 2022,
     "episode": 6,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode6/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-6.png",
     "youtubeId": "gV2_9lNTOEs",
@@ -80,7 +83,12 @@ window.PFW_PROJECTS = [
     "series": "griffincraft",
     "year": 2022,
     "episode": 5,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode5/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-5.png",
     "youtubeId": "rr9Z_pYsQ8Y",
@@ -94,7 +102,12 @@ window.PFW_PROJECTS = [
     "series": "griffincraft",
     "year": 2022,
     "episode": 4,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode4/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-4.png",
     "youtubeId": "Z9WuQmNgbQU",
@@ -108,7 +121,12 @@ window.PFW_PROJECTS = [
     "series": "griffincraft",
     "year": 2022,
     "episode": 3,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode3/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-3.png",
     "youtubeId": "3GiIIGqfQRQ",
@@ -122,7 +140,12 @@ window.PFW_PROJECTS = [
     "series": "griffincraft",
     "year": 2022,
     "episode": 2,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode2/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-2.png",
     "youtubeId": "15OWIUU3T2M",
@@ -136,7 +159,12 @@ window.PFW_PROJECTS = [
     "series": "griffincraft",
     "year": 2022,
     "episode": 1,
-    "tags": ["minecraft", "animation", "series", "griffincraft"],
+    "tags": [
+      "minecraft",
+      "animation",
+      "series",
+      "griffincraft"
+    ],
     "detailUrl": "/projects/series/griffincraft/episode1/",
     "thumbnail": "/Assets/MovieBoxes/Griffincraft Thumbnail EP-1.png",
     "youtubeId": "NFvGGg8nHcg",
